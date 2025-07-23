@@ -1,0 +1,87 @@
+[
+  {
+    "id": "e-ticket-smocp",
+    "title": "E-Ticket SMOCP",
+    "subtitle": "E-Ticket System",
+    "description": "Comprehensive electronic ticketing system for events with QR code check-in functionality, real-time analytics dashboard, and seamless ticket management. Features include automated email notifications, attendee tracking, and detailed reporting.",
+    "features": [
+      "QR Code generation and scanning",
+      "Real-time attendance tracking",
+      "Admin dashboard with analytics",
+      "Automated email notifications"
+    ],
+    "image": "https://img2.pic.in.th/pic/Screenshot-2568-07-23-at-23.20.38.png",
+    "fallbackIcon": "🎫",
+    "gradient": "from-purple-500 via-blue-500 to-indigo-600",
+    "badge": {
+      "text": "Live Project",
+      "color": "bg-green-500"
+    },
+    "github": "https://github.com/jrKitt/e-ticket-smocp",
+    "liveUrl": null
+  },
+  {
+    "id": "clubs-checkin",
+    "title": "Clubs Check-in System",
+    "subtitle": "Club Management",
+    "description": "Smart attendance tracking system for university club activities with gamified leaderboard features, peer check-in verification, and location-based validation to ensure accurate attendance records.",
+    "features": [
+      "Location-based check-in validation",
+      "Gamified leaderboard system",
+      "Peer verification mechanism",
+      "Activity participation tracking"
+    ],
+    "image": "https://img5.pic.in.th/file/secure-sv1/Screenshot-2568-07-05-at-23.22.30.png",
+    "fallbackIcon": "📋",
+    "gradient": "from-emerald-500 via-green-500 to-teal-600",
+    "badge": {
+      "text": "Live Project",
+      "color": "bg-green-500"
+    },
+    "github": "https://github.com/jrKitt/clubs-checkin",
+    "liveUrl": null
+  },
+  {
+    "id": "blindhelp-ui",
+    "title": "BlindHelp UI",
+    "subtitle": "Accessibility App",
+    "description": "Innovative mobile application specifically designed for visually impaired users featuring comprehensive voice navigation, screen reader optimization, and intuitive accessibility controls to enhance digital independence.",
+    "features": [
+      "Voice-guided navigation system",
+      "Screen reader compatibility",
+      "High contrast visual design",
+      "Gesture-based interactions"
+    ],
+    "image": "https://img2.pic.in.th/pic/IMG_3654c50ae9604af99e9b.jpg",
+    "fallbackIcon": "♿",
+    "gradient": "from-indigo-500 via-purple-500 to-pink-600",
+    "badge": {
+      "text": "Accessibility",
+      "color": "bg-purple-500"
+    },
+    "github": "https://github.com/jrKitt/BlindHelpUI",
+    "liveUrl": null
+  },
+  {
+    "id": "qr-payment",
+    "title": "QR Payment System",
+    "subtitle": "Payment System",
+    "description": "Secure and efficient QR code-based payment solution designed for seamless financial transactions with real-time processing, comprehensive security measures, and detailed transaction analytics.",
+    "features": [
+      "Instant QR code generation",
+      "Real-time transaction processing",
+      "Secure payment validation",
+      "Transaction history & analytics"
+    ],
+    "image": "https://img5.pic.in.th/file/secure-sv1/Screenshot-2568-07-23-at-23.36.59.png",
+    "fallbackIcon": "💳",
+    "gradient": "from-amber-500 via-yellow-500 to-orange-600",
+    "badge": {
+      "text": "FinTech",
+      "color": "bg-yellow-500",
+      "textColor": "text-black"
+    },
+    "github": "https://github.com/jrKitt/JaiMaReawReawQrPayment",
+    "liveUrl": null
+  }
+]
