@@ -114,7 +114,7 @@ export default function Home() {
                 Contact
               </a>
               <a
-                href="https://webring.wonderful.software#jrkitt.com"
+                href="https://webring.wonderful.software#profile.jrkitt.com"
                 title="วงแหวนเว็บ"
                 className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-all duration-200 text-sm font-medium"
               >
