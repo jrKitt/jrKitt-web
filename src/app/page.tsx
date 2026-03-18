@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import projectsData from "../data/projects.json";
 
 type Project = {
@@ -170,10 +171,13 @@ export default function Home() {
             <div className="relative">
               <div className="card-tilt relative overflow-hidden rounded-[2rem] border border-[#0f172a]/15 bg-[#0b1324] p-4 shadow-[0_24px_60px_-30px_rgba(2,132,199,0.6)]">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem]">
-                  <img
+                  <Image
                     src="/img.JPG"
                     alt="Kittichai Raksawong"
-                    className="h-full w-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                    priority
                   />
                 </div>
                 <div className="absolute left-8 top-8 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0f172a]">
@@ -272,10 +276,12 @@ export default function Home() {
               >
                 <div className="relative aspect-video overflow-hidden">
                   {project.image ? (
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
                     />
                   ) : (
                     <div
@@ -401,11 +407,12 @@ export default function Home() {
                 title="วงแหวนเว็บ"
                 className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/20 bg-white/10"
               >
-                <img
+                <Image
                   alt="วงแหวนเว็บ"
-                  width="28"
-                  height="28"
+                  width={28}
+                  height={28}
                   src="https://webring.wonderful.software/webring.black.svg"
+                  unoptimized
                 />
               </a>
               <a
