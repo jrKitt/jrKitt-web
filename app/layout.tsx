@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Prompt } from "next/font/google";
+import Navbar from "../components/Navbar";
 import "./globals.css";
 
-const displayFont = Space_Grotesk({
+const displayFont = Prompt({
   variable: "--font-display",
-  subsets: ["latin"],
+  subsets: ["latin", "thai"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const monoFont = JetBrains_Mono({
@@ -25,7 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${displayFont.variable} ${monoFont.variable} antialiased`}>
+      <body className={`${displayFont.variable} ${monoFont.variable} antialiased bg-white text-gray-900`}>
+        <Navbar />
         {children}
       </body>
     </html>

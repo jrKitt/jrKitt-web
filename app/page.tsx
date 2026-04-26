@@ -1,4 +1,5 @@
-import GitHubRepos from './components/GitHubRepos';
+"use client"
+import BlogList from '../components/BlogList';
 
 export default function Home() {
   const techStack = [
@@ -34,110 +35,84 @@ export default function Home() {
   ];
 
   return (
-    <div className="site-shell px-5 py-8 sm:px-8 sm:py-12">
-      <main className="mx-auto grid w-full max-w-6xl gap-6 items-start lg:grid-cols-[1.15fr_0.85fr]">
-        <section className="card-surface enter-rise relative rounded-3xl p-6 shadow-[0_18px_50px_rgba(12,18,14,0.08)] sm:p-9">
-          <p className="font-mono text-xs uppercase tracking-[0.28em] text-muted">
-            Khon Kaen, Thailand
-          </p>
+    <div className="bg-white min-h-screen text-gray-900 pb-20">
+      <main className="mx-auto w-full max-w-5xl px-6 pt-16">
 
-          <h1 className="mt-5 max-w-xl text-4xl font-semibold leading-tight sm:text-6xl">
-            Kittichai Raksawong
-            <span className="block text-muted">Junior Full Stack Developer</span>
+        <section className="mb-20">
+          <h1 className="text-5xl font-bold leading-tight sm:text-7xl text-blue-900 tracking-tight">
+            Kittichai <br /> Raksawong
           </h1>
-
-          <p className="text-muted mt-6 max-w-2xl text-base leading-8 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-lg text-gray-600 leading-relaxed">
             Thailand-based Full Stack Developer focused on building reliable web applications from product idea to production deployment. My day-to-day work spans frontend architecture, backend API development, database design, and cloud delivery.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="mailto:contact@jrkitt.dev"
-              className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
-            >
-              Get in touch
-            </a>
-            <a
-              href="https://github.com/jrKitt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-black/5 dark:hover:bg-white/10"
-            >
-              View GitHub
-            </a>
-          </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-12 flex flex-wrap gap-3 opacity-80">
             {techStack.map((item) => (
               <div
                 key={item.name}
-                className="flex items-center gap-2 rounded-full border border-[var(--line)] px-3 py-1.5"
+                className="flex items-center gap-2 rounded-full bg-gray-50 border border-gray-100 px-4 py-2"
               >
                 <img
                   src={item.logo}
                   alt={item.name}
-                  width="16"
-                  height="16"
-                  className="h-4 w-4"
+                  width="18"
+                  height="18"
+                  className="h-4.5 w-4.5"
                 />
-                <span className="font-mono text-xs">{item.name}</span>
+                <span className="font-mono text-xs font-medium text-gray-600">{item.name}</span>
               </div>
             ))}
           </div>
         </section>
 
-        <div className="flex flex-col gap-6">
-          <section className="card-surface enter-rise-delay rounded-3xl p-6 sm:p-9">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h2 className="text-2xl font-semibold">Experience</h2>
-                <p className="text-muted mt-2 text-sm">Background & Work History</p>
-              </div>
-              <a
-                href="https://webring.wonderful.software#jrkitt.com"
-                title="Webring"
-                className="ring-rotate inline-flex h-12 w-12 items-center justify-center rounded-full"
-              >
-                <img
-                  alt="Webring"
-                  width="32"
-                  height="32"
-                  src="https://webring.wonderful.software/webring.white.svg"
-                  className="invert-0 dark:invert"
-                />
-              </a>
-            </div>
-
-            <div className="mt-6 space-y-3">
-              <div className="text-sm leading-relaxed">
-                <p className="font-semibold text-foreground">Junior Full Stack Developer (Part-time)</p>
-                <p className="text-muted text-xs">at APSTH</p>
-              </div>
-              <div className="text-sm leading-relaxed">
-                <p className="font-semibold text-foreground">Web Developer & IT Support (Internship)</p>
-                <p className="text-muted text-xs">at IT NETWORK</p>
-              </div>
-              <div className="text-sm leading-relaxed">
-                <p className="font-semibold text-foreground">Web Developer</p>
-                <p className="text-muted text-xs">at Student Union, College of Computing, KKU</p>
-              </div>
-              <div className="text-sm leading-relaxed">
-                <p className="font-semibold text-foreground">Freelance Developer</p>
-                <p className="text-muted text-xs">for startup and organization web systems</p>
-              </div>
-            </div>
-
-            <div className="mt-8 space-y-4">
-              <GitHubRepos />
-            </div>
-          </section>
-
+        <div id="blog">
+          <BlogList />
         </div>
+
+        <section id="projects" className="mt-24">
+          <h2 className="text-3xl font-semibold text-blue-900 mb-8">Projects</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => (
+              <a
+                key={project.title}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 rounded-2xl bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-100 transition duration-300"
+              >
+                <h3 className="text-xl font-medium text-blue-800">{project.title}</h3>
+                <p className="mt-3 text-gray-600 text-sm leading-relaxed">{project.detail}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-24 pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-start gap-8">
+          <div>
+            <h2 className="text-2xl font-semibold text-blue-900">Experience</h2>
+            <div className="mt-6 space-y-4">
+              <div>
+                <p className="font-semibold text-gray-800">Junior Full Stack Developer (Part-time)</p>
+                <p className="text-gray-500 text-sm">at APSTH</p>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-800">Web Developer & IT Support (Internship)</p>
+                <p className="text-gray-500 text-sm">at IT NETWORK</p>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-800">Web Developer</p>
+                <p className="text-gray-500 text-sm">at Student Union, College of Computing, KKU</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
 
-      <footer className="mx-auto mt-6 w-full max-w-6xl px-2 pb-3">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-          Built for jrkitt.com · Next.js + Tailwind
+      <footer className="mx-auto mt-20 w-full max-w-5xl px-6 text-center">
+        <p className="font-mono text-xs uppercase tracking-widest text-gray-400">
+          Built for jrkitt.com
         </p>
       </footer>
     </div>
