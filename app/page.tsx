@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 import BlogList from '../components/BlogList';
 
 export default function Home() {
@@ -35,37 +36,47 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-white min-h-screen text-gray-900 pb-20">
-      <main className="mx-auto w-full max-w-5xl px-6 pt-16">
+    <div className="min-h-screen bg-white pb-20 text-gray-900">
+      <main className="w-full">
 
-        <section className="mb-20">
-          <h1 className="text-5xl font-bold leading-tight sm:text-7xl text-blue-900 tracking-tight">
-            Kittichai <br /> Raksawong
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-gray-600 leading-relaxed">
-            Thailand-based Full Stack Developer focused on building reliable web applications from product idea to production deployment. My day-to-day work spans frontend architecture, backend API development, database design, and cloud delivery.
-          </p>
+        <section className="relative isolate mb-20 w-full overflow-hidden bg-white py-10 sm:py-14 lg:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(17,24,39,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(17,24,39,0.05)_1px,transparent_1px)] bg-size-[36px_36px] opacity-70" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_55%),radial-gradient(circle_at_top_left,rgba(15,23,42,0.04),transparent_45%)]" />
+
+          <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-14">
+          <div className="relative grid items-stretch gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <h1 className="text-5xl font-bold leading-tight tracking-tight text-blue-900 sm:text-7xl">
+                Kittichai <br /> Raksawong
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+                Thailand-based Full Stack Developer focused on building reliable web applications from product idea to production deployment. My day-to-day work spans frontend architecture, backend API development, database design, and cloud delivery.
+              </p>
 
 
-          <div className="mt-12 flex flex-wrap gap-3 opacity-80">
-            {techStack.map((item) => (
-              <div
-                key={item.name}
-                className="flex items-center gap-2 rounded-full bg-gray-50 border border-gray-100 px-4 py-2"
-              >
-                <img
-                  src={item.logo}
-                  alt={item.name}
-                  width="18"
-                  height="18"
-                  className="h-4.5 w-4.5"
-                />
-                <span className="font-mono text-xs font-medium text-gray-600">{item.name}</span>
+              <div className="mt-12 flex flex-wrap gap-3 opacity-80">
+                {techStack.map((item) => (
+                  <div
+                    key={item.name}
+                    className="flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-2 shadow-sm backdrop-blur-sm"
+                  >
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      width="18"
+                      height="18"
+                      className="h-4.5 w-4.5"
+                    />
+                    <span className="font-mono text-xs font-medium text-gray-600">{item.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
           </div>
         </section>
 
+        <div className="mx-auto w-full max-w-5xl px-6">
         <div id="blog">
           <BlogList />
         </div>
@@ -107,6 +118,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </div>
 
       </main>
 

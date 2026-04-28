@@ -11,12 +11,12 @@ export default function Navbar() {
         <div className="hidden md:flex gap-4 text-sm font-medium text-gray-600">
           <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
           <Link href="/#blog" className="hover:text-blue-600 transition-colors">Blog</Link>
-          <Link href="/#projects" className="hover:text-blue-600 transition-colors">Projects</Link>
+          <Link href="/projects" className="hover:text-blue-600 transition-colors">Projects</Link>
           <Link href="mailto:contact@jrkitt.dev" className="hover:text-blue-600 transition-colors">Contact</Link>
           <a
             href="https://webring.wonderful.software#jrkitt.com"
             title="Webring"
-            className="ring-rotate inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white transition hover:scale-110 ml-2"
+            className="ring-rotate inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-300 text-white transition hover:scale-110 ml-2"
           >
             <img
               alt="Webring"

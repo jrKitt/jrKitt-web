@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${displayFont.variable} ${monoFont.variable} antialiased bg-white text-gray-900`}>
+      <body className={`${displayFont.variable} ${monoFont.variable} antialiased text-gray-900`}>
         <Navbar />
         {children}
       </body>
