@@ -1,129 +1,230 @@
 "use client"
-import Image from 'next/image';
+import { HiBookOpen, HiCog, HiBriefcase, HiViewGrid, HiDocumentText } from 'react-icons/hi';
 import BlogList from '../components/BlogList';
 
 export default function Home() {
-  const techStack = [
-    { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-    { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-    { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
-    { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
-    { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+  const skills = [
+    { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+    { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+    { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
+    { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" },
+    { name: "Go", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" },
+    { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" },
+    { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+    { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" },
+  ];
+
+  const works = [
+    {
+      company: "Freelance Full-Stack Developer",
+      role: "Self-employed",
+      period: "2025 - Present",
+    },
+    {
+      company: "APSTH Company Limited",
+      role: "Frontend Developer",
+      period: "Sep 2024 - Feb 2026",
+    },
+    {
+      company: "Friendly Dev Co., Ltd.",
+      role: "Mobile Developer",
+      period: "Aug 2024 - Feb 2025",
+    },
+    {
+      company: "IT Network Computer Service",
+      role: "IT Support & Web Intern",
+      period: "Oct 2023 - Feb 2024",
+    },
   ];
 
   const projects = [
     {
-      title: "E-Ticket SMOCP",
-      detail:
-        "Event ticketing system with QR code check-in and real-time dashboard for event management teams",
-      href: "https://github.com/jrKitt/e-ticket-smocp",
+      title: "SMOCP.COM",
+      description: "Student union website — project manager & infrastructure lead. Managing day-to-day operations, coordinating the team, and handling deployment and hosting.",
+      tags: ["Next.js", "React", "MongoDB", "Vercel"],
+      href: "https://github.com/jrKitt/SMOCP.COM",
     },
     {
-      title: "Clubs Check-in System",
-      detail:
-        "Club attendance system with leaderboard, location validation, and peer verification features",
-      href: "https://github.com/jrKitt/clubs-checkin",
+      title: "DLT Khon Kaen Queue System",
+      description: "End-to-end queue management platform for Department of Land Transport — online booking, QR check-in, real-time updates with Socket.io, and admin dashboards.",
+      tags: ["Next.js", "TypeScript", "Express", "MySQL"],
+      href: "https://github.com/jrKitt/preview-dlt-khonkaen",
     },
     {
-      title: "BlindHelp UI",
-      detail:
-        "App designed for visually impaired users, focused on voice access and gesture-based interactions",
-      href: "https://github.com/jrKitt/BlindHelpUI",
+      title: "EDS — Education System",
+      description: "Full school management system for Udonthani Technical College — admins, teachers, and students modules with attendance, grades, and schedules.",
+      tags: ["PHP", "MySQL", "Laravel"],
+      href: "#",
+    },
+    {
+      title: "ignite",
+      description: "Lightweight Go live-reload tool that reruns programs automatically on source changes.",
+      tags: ["Go", "Open Source"],
+      href: "https://github.com/jrKitt/ignite",
+    },
+    {
+      title: "COMSCIKKU",
+      description: "Community web platform for Computer Science developers at KKU.",
+      tags: ["Next.js", "TypeScript", "MongoDB"],
+      href: "https://github.com/jrKitt/comscikku",
+    },
+    {
+      title: "MobiStock",
+      description: "DBMS-focused inventory and stock management web application.",
+      tags: ["Node.js", "PostgreSQL", "Express"],
+      href: "https://github.com/jrKitt/MobiStock",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white pb-20 text-gray-900">
-      <main className="w-full">
+    <div className="min-h-screen bg-black pb-20 text-slate-100">
+      <main className="mx-auto max-w-4xl px-6 py-16">
 
-        <section className="relative isolate mb-20 w-full overflow-hidden bg-white py-10 sm:py-14 lg:py-16">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(17,24,39,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(17,24,39,0.05)_1px,transparent_1px)] bg-size-[36px_36px] opacity-70" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_55%),radial-gradient(circle_at_top_left,rgba(15,23,42,0.04),transparent_45%)]" />
-
-          <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-14">
-          <div className="relative grid items-stretch gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <h1 className="text-5xl font-bold leading-tight tracking-tight text-blue-900 sm:text-7xl">
-                Kittichai <br /> Raksawong
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-                Thailand-based Full Stack Developer focused on building reliable web applications from product idea to production deployment. My day-to-day work spans frontend architecture, backend API development, database design, and cloud delivery.
-              </p>
-
-
-              <div className="mt-12 flex flex-wrap gap-3 opacity-80">
-                {techStack.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-2 shadow-sm backdrop-blur-sm"
-                  >
-                    <img
-                      src={item.logo}
-                      alt={item.name}
-                      width="18"
-                      height="18"
-                      className="h-4.5 w-4.5"
-                    />
-                    <span className="font-mono text-xs font-medium text-gray-600">{item.name}</span>
-                  </div>
-                ))}
-              </div>
+        {/* Hero Section */}
+        <section className="mb-16 flex items-start gap-6">
+          <img
+            src="https://github.com/jrKitt.png"
+            alt="Kittichai Raksawong"
+            className="h-32 w-32 rounded-full border-2 border-slate-800"
+          />
+          <div className="flex-1">
+            <h1 className="text-4xl font-bold text-slate-50">
+              Hello, I'm Kittichai Raksawong
+            </h1>
+            <p className="mt-2 text-slate-400">
+              Full-Stack Developer
+            </p>
+            <p className="text-sm text-slate-500">
+              Khon Kaen, Thailand • BSc Computer Science @ KKU
+            </p>
+            <div className="mt-3 flex gap-2">
+              <a
+                href="/cv.html"
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm font-medium text-slate-200 transition hover:border-sky-400 hover:bg-slate-800 hover:text-sky-400"
+              >
+                <HiDocumentText size={16} />
+                View Resume
+              </a>
             </div>
-          </div>
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-5xl px-6">
-        <div id="blog">
-          <BlogList />
-        </div>
+        {/* About Me Section */}
+        <section className="mb-12">
+          <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-200">
+            <HiBookOpen className="text-sky-400" size={20} /> About me
+          </h2>
+          <div className="space-y-4 rounded-lg border border-slate-800 bg-slate-900/30 p-6 text-slate-400">
+            <p>
+              Full-stack developer based in Khon Kaen, Thailand, building web and mobile applications from idea to production. I work across the stack — React and Next.js on the frontend, Node.js, Elysia.js, PHP and Go on the backend, and Flutter for mobile.
+            </p>
+            <p>
+              Currently completing a BSc in Computer Science at Khon Kaen University while taking on freelance and product work. I care about shipping clean, maintainable software and enjoy owning features end to end.
+            </p>
+          </div>
+        </section>
 
-        <section id="projects" className="mt-24">
-          <h2 className="text-3xl font-semibold text-blue-900 mb-8">Projects</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <a
-                key={project.title}
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-6 rounded-2xl bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-100 transition duration-300"
+        {/* Skills and Tools */}
+        <section className="mb-12">
+          <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-200">
+            <HiCog className="text-sky-400" size={20} /> Skills and Tools
+          </h2>
+          <div className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900/30 py-4">
+            <div className="flex gap-3 animate-scroll">
+              {[...skills, ...skills].map((skill, index) => (
+                <div
+                  key={`${skill.name}-${index}`}
+                  className="flex shrink-0 items-center gap-2 rounded-md border border-slate-800 bg-black/60 px-3 py-2 transition hover:border-sky-400/30 hover:bg-slate-900"
+                >
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="h-5 w-5"
+                  />
+                  <span className="font-mono text-sm text-slate-300">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Works */}
+        <section className="mb-12">
+          <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-200">
+            <HiBriefcase className="text-sky-400" size={20} /> Works
+          </h2>
+          <div className="space-y-3">
+            {works.map((work) => (
+              <div
+                key={work.company}
+                className="flex items-start justify-between rounded-lg border border-slate-800 bg-slate-900/30 p-4 transition hover:border-slate-700 hover:bg-slate-900/50"
               >
-                <h3 className="text-xl font-medium text-blue-800">{project.title}</h3>
-                <p className="mt-3 text-gray-600 text-sm leading-relaxed">{project.detail}</p>
-              </a>
+                <div>
+                  <h3 className="font-semibold text-slate-200">{work.company}</h3>
+                  <p className="text-sm text-slate-400">{work.role}</p>
+                </div>
+                <span className="font-mono text-sm text-slate-500">{work.period}</span>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="mt-24 pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-start gap-8">
-          <div>
-            <h2 className="text-2xl font-semibold text-blue-900">Experience</h2>
-            <div className="mt-6 space-y-4">
-              <div>
-                <p className="font-semibold text-gray-800">Junior Full Stack Developer (Part-time)</p>
-                <p className="text-gray-500 text-sm">at APSTH</p>
-              </div>
-              <div>
-                <p className="font-semibold text-gray-800">Web Developer & IT Support (Internship)</p>
-                <p className="text-gray-500 text-sm">at IT NETWORK</p>
-              </div>
-              <div>
-                <p className="font-semibold text-gray-800">Web Developer</p>
-                <p className="text-gray-500 text-sm">at Student Union, College of Computing, KKU</p>
-              </div>
-            </div>
+        {/* Projects */}
+        <section className="mb-12">
+          <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-200">
+            <HiViewGrid className="text-sky-400" size={20} /> Projects
+          </h2>
+          <div className="rounded-lg border border-slate-800 bg-slate-900/30 p-6">
+            <ul className="space-y-3">
+              {projects.map((project) => (
+                <li key={project.title}>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-3 transition"
+                  >
+                    <span className="mt-1.5 text-slate-600">•</span>
+                    <div className="flex-1">
+                      <h3 className="font-medium text-slate-200 transition group-hover:text-sky-400">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-slate-400">{project.description}</p>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded border border-slate-800 bg-slate-900/50 px-2 py-0.5 font-mono text-xs text-slate-500"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
+
+        <div id="blog" className="mb-16">
+          <BlogList />
         </div>
 
       </main>
 
-      <footer className="mx-auto mt-20 w-full max-w-5xl px-6 text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-gray-400">
+      <footer className="mx-auto mt-20 w-full max-w-4xl px-6 text-center">
+        <p className="font-mono text-xs uppercase tracking-widest text-slate-600">
           Built for jrkitt.com
         </p>
       </footer>

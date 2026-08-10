@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kittichai Raksawong — Full-Stack Developer</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --line: #d9d9d9;
+    --accent: #1f2937;
+    --accent-soft: #374151;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    background: #eee;
+    font-size: 13px;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 18mm 16mm;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(0,0,0,.12);
+  }
+
+  /* Header */
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 12px; }
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .role {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-soft);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .contact {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+  .contact a { color: var(--muted); text-decoration: none; }
+  .contact span.sep { color: var(--line); }
+
+  /* Summary */
+  .summary { margin: 14px 0 4px; font-size: 12.5px; color: #333; text-align: justify; }
+
+  /* Section headings */
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+    margin: 18px 0 8px;
+  }
+
+  /* Experience / entries */
+  .entry { margin-bottom: 11px; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .entry-title { font-size: 13.5px; font-weight: 700; }
+  .entry-org { font-weight: 600; color: var(--accent-soft); }
+  .entry-date { font-size: 11.5px; color: var(--muted); white-space: nowrap; font-weight: 600; }
+  .entry-sub { font-size: 11.5px; color: var(--muted); font-style: italic; margin-bottom: 2px; }
+  ul.bullets { list-style: none; margin-top: 3px; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 2px;
+  }
+  ul.bullets li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-soft);
+    font-size: 11px;
+  }
+
+  /* Skills grid */
+  .skills-grid { display: grid; grid-template-columns: 140px 1fr; row-gap: 6px; column-gap: 10px; }
+  .skills-grid .cat { font-weight: 700; font-size: 12px; color: var(--accent-soft); }
+  .skills-grid .val { font-size: 12px; color: #333; }
+
+  /* Two-column helper for projects */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+
+  a { color: inherit; }
+
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .page { margin: 0; box-shadow: none; width: auto; min-height: auto; padding: 12mm 14mm; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Kittichai Raksawong</h1>
+    <div class="role">Full-Stack Developer</div>
+    <div class="contact">
+      <span>Khon Kaen, Thailand</span><span class="sep">|</span>
+      <a href="mailto:kittichdev@gmail.com">kittichdev@gmail.com</a><span class="sep">|</span>
+      <span>095 961 1962</span><span class="sep">|</span>
+      <a href="https://jrkitt.com">jrkitt.com</a><span class="sep">|</span>
+      <a href="https://github.com/jrKitt">github.com/jrKitt</a><span class="sep">|</span>
+      <a href="https://linkedin.com/in/jrKitt">linkedin.com/in/jrKitt</a>
+    </div>
+  </header>
+
+  <p class="summary">
+    Full-stack developer based in Khon Kaen, Thailand, building web and mobile applications from idea to
+    production. I work across the stack — React and Next.js on the frontend, Node.js, Elysia.js, PHP and Go on
+    the backend, and Flutter for mobile. Currently completing a BSc in Computer Science at Khon Kaen University
+    while taking on freelance and product work. I care about shipping clean, maintainable software and enjoy
+    owning features end to end.
+  </p>
+
+  <h2>Professional Experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Freelance Full-Stack Developer</span>
+      <span class="entry-date">2025 – Present</span>
+    </div>
+    <ul class="bullets">
+      <li>Deliver web and mobile applications for clients, covering frontend, backend, and deployment.</li>
+      <li>Design database schemas, build REST APIs, and ship production-ready UIs with React and Next.js.</li>
+      <li>Handle the full lifecycle from requirements gathering to deployment on Vercel and DigitalOcean.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Frontend Developer, <span class="entry-org">APSTH Company Limited</span></span>
+      <span class="entry-date">Sep 2024 – Feb 2026</span>
+    </div>
+    <ul class="bullets">
+      <li>Developed an integrated online store and clinic management system.</li>
+      <li>Built backend APIs using Elysia.js on the Bun runtime, with MySQL as the primary database.</li>
+      <li>Implemented shopping cart, payment processing, product reviews, and user management features.</li>
+      <li>Added JWT authentication and role-based access control for store owners.</li>
+      <li>Contributed to frontend UI layout and components using React.js and Tailwind CSS.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Mobile Developer, <span class="entry-org">Friendly Dev Co., Ltd.</span></span>
+      <span class="entry-date">Aug 2024 – Feb 2025</span>
+    </div>
+    <ul class="bullets">
+      <li>Built a Flutter application from assigned UI designs, using Firebase for backend services.</li>
+      <li>Developed an accessible app for the visually impaired, published free on Google Play and the App Store.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">IT Support &amp; Web Intern, <span class="entry-org">IT Network Computer Service</span></span>
+      <span class="entry-date">Oct 2023 – Feb 2024</span>
+    </div>
+    <ul class="bullets">
+      <li>Built a website to collect employee attendance data for salary management.</li>
+      <li>Maintained network systems including LAN cabling, signal cables, and server installation.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">SMOCP.COM <span class="entry-org">— Project Manager &amp; Infrastructure</span></span>
+      <span class="entry-date">May 2025 – Present</span>
+    </div>
+    <ul class="bullets">
+      <li>Managing and maintaining the student union (สโมสรนักศึกษา) website, overseeing day-to-day operations and content.</li>
+      <li>Acting as project manager — planning features, coordinating the team, and driving releases from idea to production.</li>
+      <li>Responsible for infrastructure: deployment, hosting, and keeping the platform reliable and up to date.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">DLT Khon Kaen — Queue Management System</span>
+      <span class="entry-date">github.com/jrKitt/preview-dlt-khonkaen</span>
+    </div>
+    <div class="entry-sub">Department of Land Transport, Khon Kaen Provincial Office (Branch 2)</div>
+    <ul class="bullets">
+      <li>End-to-end queue and service management platform serving citizens, officers, and admins — online
+        booking, QR/citizen-ID check-in, queue calling, counter transfers, and satisfaction evaluation.</li>
+      <li>Built real-time queue updates with Socket.io, LINE Login/LIFF integration, and JWT-based role
+        access (admin, officer, process lead, citizen).</li>
+      <li>Admin dashboards and daily/monthly/yearly reports; configurable service points, rooms, activities,
+        and booking calendars.</li>
+      <li>Stack: Next.js 15 + TypeScript + Tailwind CSS, Node.js + Express.js, MySQL.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">EDS — Education System for Udonthani Technical College</span>
+      <span class="entry-date">Oct 2023 – Feb 2024</span>
+    </div>
+    <div class="entry-sub">University of Engineering Process Cohort</div>
+    <ul class="bullets">
+      <li>Full school management system: admins manage users, personnel, and public news; teachers handle
+        attendance, grades, and learning materials; students view grades, schedules, and evaluate instructors.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">ignite <span class="entry-org">— Open Source (Go)</span></span>
+      <span class="entry-date">github.com/jrKitt/ignite</span>
+    </div>
+    <ul class="bullets">
+      <li>A lightweight Go live-reload tool and library that reruns programs automatically on source changes.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Selected Products &amp; Apps</span>
+    </div>
+    <ul class="bullets two-col">
+      <li>COMSCIKKU — CS faculty platform</li>
+      <li>MobiStock — inventory management</li>
+      <li>Nurse Plus — healthcare application</li>
+      <li>KKU Volunteer — student volunteer system</li>
+      <li>jrKitt's Lab — personal dev playground</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="cat">Frontend</div>
+    <div class="val">React.js, Next.js, TypeScript, Tailwind CSS</div>
+    <div class="cat">Backend</div>
+    <div class="val">Node.js, Express.js, Elysia.js (Bun), PHP (Laravel, CodeIgniter), Go</div>
+    <div class="cat">Mobile</div>
+    <div class="val">Flutter (Dart)</div>
+    <div class="cat">Databases</div>
+    <div class="val">MySQL, PostgreSQL, MongoDB, Firebase</div>
+    <div class="cat">DevOps &amp; Tools</div>
+    <div class="val">Docker, Vercel, DigitalOcean, Git / GitLab, Linux (Arch)</div>
+  </div>
+
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Khon Kaen University <span class="entry-org">— College of Computing</span></span>
+      <span class="entry-date">Feb 2024 – Present</span>
+    </div>
+    <div class="entry-sub">Bachelor of Science in Computer Science</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Udonthani Technical College <span class="entry-org">— Information Technology</span></span>
+      <span class="entry-date">May 2021 – Mar 2024</span>
+    </div>
+    <div class="entry-sub">Vocational Certificate — Computer, Web and Mobile Programming</div>
+  </div>
+
+</div>
+</body>
+</html>

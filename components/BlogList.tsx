@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { HiDocumentText } from 'react-icons/hi';
 
 interface BlogPost {
   id: string;
@@ -21,32 +22,34 @@ export default function BlogList() {
   }, []);
 
   if (!posts.length) {
-    return <p className="text-muted">No blog posts available.</p>;
+    return <p className="text-slate-500">No blog posts available.</p>;
   }
 
   return (
-    <section className="mt-12 space-y-6">
-      <h2 className="text-3xl font-semibold text-blue-900">Blog</h2>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <section className="space-y-6">
+      <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-200">
+        <HiDocumentText className="text-sky-400" size={20} /> Blog
+      </h2>
+      <div className="grid gap-4 md:grid-cols-2">
         {posts.map((post) => (
           <Link
             key={post.id}
             href={`/blog/${post.id}`}
-            className="card-surface block rounded-2xl overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-lg border border-slate-800 bg-slate-900/30 transition hover:border-slate-700 hover:bg-slate-900/50"
           >
             {post.image && (
-              <div className="w-full h-48 bg-gray-100 relative">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover"
+              <div className="aspect-video overflow-hidden bg-slate-800">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="h-full w-full object-cover opacity-80 transition group-hover:opacity-100"
                 />
               </div>
             )}
-            <div className="p-5">
-              <h3 className="text-xl font-medium text-blue-800 line-clamp-2">{post.title}</h3>
-              <p className="text-sm text-gray-500 mt-2">{post.date}</p>
-              <p className="mt-3 text-base text-gray-600 leading-relaxed line-clamp-3">{post.excerpt}</p>
+            <div className="p-4">
+              <h3 className="line-clamp-2 font-semibold text-slate-200 transition group-hover:text-sky-400">{post.title}</h3>
+              <p className="mt-2 font-mono text-xs text-slate-500">{post.date}</p>
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-400">{post.excerpt}</p>
             </div>
           </Link>
         ))}
