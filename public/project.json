@@ -1,0 +1,98 @@
+[
+  {
+    "id": "dlt-queue",
+    "title": "DLT Khon Kaen Queue System",
+    "description": "End-to-end real-time queue management system for the Department of Land Transport. Features citizen online booking, QR code on-site check-in, live queue status broadcasting via WebSockets, and administrative control panels.",
+    "link": "https://www.dlt-khonkaen.com",
+    "github": "https://github.com/jrKitt/preview-dlt-khonkaen",
+    "image": "/dltqueue.png",
+    "tags": ["Next.js", "TypeScript", "Express", "Socket.io", "MySQL"],
+    "category": "Full-Stack System",
+    "status": "Completed",
+    "featured": true
+  },
+  {
+    "id": "smocp",
+    "title": "SMOCP.COM",
+    "description": "Student union portal and digital operations platform for CP KKU. Led infrastructure, cloud deployment, and system architecture to handle event registrations, ticketing, and organizational announcements.",
+    "link": "https://smocp.com",
+    "github": "https://github.com/jrKitt/SMOCP.COM",
+    "image": "/SMOWEB.jpg",
+    "tags": ["Next.js", "React", "MongoDB", "Vercel", "Tailwind CSS"],
+    "category": "Web Platform",
+    "status": "Production",
+    "featured": true
+  },
+  {
+    "id": "hackathon-tracking",
+    "title": "GPS Fleet Tracking System",
+    "description": "Real-time logistics and fleet tracking dashboard developed during Hackathon. Built an interactive telemetry monitoring interface that tracks truck coordinates, dispatch statuses, and driver route compliance.",
+    "link": "https://jrkitt.com/blog/hackathon-experience",
+    "github": "https://github.com/jrKitt",
+    "image": "/onet.png",
+    "tags": ["React", "Express", "Leaflet Maps", "IoT"],
+    "category": "Hackathon",
+    "status": "Completed",
+    "featured": false
+  },
+  {
+    "id": "mobistock",
+    "title": "MobiStock",
+    "description": "Enterprise-grade DBMS stock and inventory management web solution. Built with relational database integrity, tracking SKU shipments, low-stock alerts, purchase orders, and supplier audits.",
+    "link": "https://mobistockx.b-bsw.com",
+    "github": "https://github.com/jrKitt/MobiStock",
+    "image": "/mbst.png",
+    "tags": ["Node.js", "PostgreSQL", "Express", "Tailwind CSS"],
+    "category": "Web Application",
+    "status": "Online",
+    "featured": true
+  },
+   {
+    "id": "vlt",
+    "title": "KKU VALONTEER",
+    "description": "Volunteer activities play an important role in developing students’ skills and competencies beyond the classroom. They are also a requirement for obtaining or maintaining scholarships, such as financial assistance scholarships for students in need and the Student Loan Fund (SLF). Borrowers are required to participate in volunteer activities for a specified number of hours. However, the current process of managing activities, registering participants, recording volunteer hours, and verifying accumulated hours still relies on paper-based documentation. This leads to several problems, including lost documents, difficulties in verifying volunteer hours, and inefficient activity management. Therefore, this project aims to develop a web application for managing volunteer activities and volunteer hours. The system is designed to provide a secure, convenient, and efficient solution that can be practically implemented and used in real-world situations.",
+    "link": "https://github.com/jrKitt/KKUVALONTEER",
+    "github": "https://github.com/jrKitt/KKUVALONTEER",
+    "image": "/vlt.png",
+    "tags": ["Node.js", "PostgreSQL", "Express", "Tailwind CSS"],
+    "category": "Web Application",
+    "status": "Complete",
+    "featured": true
+  },
+   {
+    "id": "haptic",
+    "title": "Haptics Network",
+    "description": "HapticNet is a low-latency network communication project designed to transmit haptic data, including position, rotation, and force, between devices over a Local Area Network (LAN). The system uses a custom UDP protocol with a 52-byte binary payload to reduce network overhead and implements a Jitter Buffer and Dead Reckoning algorithm to handle packet reordering and packet loss. It also integrates gRPC for protocol performance comparison and a web dashboard for real-time simulation and monitoring. As the System Architect, I am responsible for designing the overall system architecture, defining the binary payload structure and byte offsets, selecting suitable algorithms, reviewing network thread management, and preparing technical documentation to ensure efficient and reliable real-time communication.",
+    "link": "https://github.com/jrKitt/HapticNetwork",
+    "github": "https://github.com/jrKitt/HapticNetwork",
+    "image": "/Hapticx.png",
+    "tags": ["Next.js", "MongoDB", "Vercel Edge"],
+    "category": "Network",
+    "status": "Complete",
+    "featured": false
+  },
+  {
+    "id": "qr-payment",
+    "title": "JaiMaReawReaw QR Payment",
+    "description": "Streamlined merchant QR payment generation and verification utility. Generates PromptPay dynamic QR codes and validates incoming transaction confirmations instantly.",
+    "link": "https://jmrr.jrkitt.com",
+    "github": "https://github.com/jrKitt/JaiMaReawReawQrPayment",
+    "image": "/jmrr.png",
+    "tags": ["React", "Node.js", "Express", "PromptPay API"],
+    "category": "Fintech Utility",
+    "status": "Online",
+    "featured": false
+  },
+  {
+    "id": "eds-utc",
+    "title": "EDS — Education System",
+    "description": "Comprehensive institutional campus management platform deployed for Udonthani Technical College, unifying administrator portals, instructor grading modules, and student schedules.",
+    "link": "https://github.com/jrKitt",
+    "github": "https://github.com/jrKitt",
+    "image": "/EDS.png",
+    "tags": ["PHP", "MySQL", "Laravel", "Tailwind CSS"],
+    "category": "Management System",
+    "status": "Completed",
+    "featured": false
+  }
+]

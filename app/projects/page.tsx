@@ -1,162 +1,311 @@
-"use client"
-import { HiViewGrid } from 'react-icons/hi';
+"use client";
 
-export default function Projects() {
-  const projects = [
-    {
-      title: "COMSCIKKU",
-      detail: "Community web platform for Computer Science developers at KKU.",
-      href: "https://github.com/jrKitt/comscikku",
-      live: "https://comscikku.dev",
-      tags: ["Next.js", "TypeScript", "MongoDB"],
-    },
-    {
-      title: "MobiStock",
-      detail: "DBMS-focused inventory and stock management web app.",
-      href: "https://github.com/jrKitt/MobiStock",
-      live: "https://mobistock.jrkitt.com",
-      tags: ["Node.js", "PostgreSQL", "Express"],
-    },
-    {
-      title: "SMOCP.COM",
-      detail: "Student organization web platform for communication and operations.",
-      href: "https://github.com/jrKitt/SMOCP.COM",
-      live: "https://smocpcom.vercel.app",
-      tags: ["Next.js", "React", "MongoDB"],
-    },
-    {
-      title: "SMOCP E-Ticket 2025",
-      detail: "PWA e-ticket platform for university event workflows.",
-      href: "https://github.com/jrKitt/e-ticket-smocp",
-      live: "https://e-ticket.smocp.com",
-      tags: ["Next.js", "PostgreSQL", "PWA"],
-    },
-    {
-      title: "JaiMaReawReawQrPayment",
-      detail: "QR payment web app for streamlined transaction flow.",
-      href: "https://github.com/jrKitt/JaiMaReawReawQrPayment",
-      live: "https://jmrr.jrkitt.com",
-      tags: ["React", "Node.js", "Express"],
-    },
-    {
-      title: "SMOCP Order",
-      detail: "Online ordering system for student organization operations.",
-      href: "https://github.com/jrKitt/orders.smocp.com",
-      live: "https://orders-tawny.vercel.app",
-      tags: ["Next.js", "MongoDB", "Vercel"],
-    },
-    {
-      title: "shorturls",
-      detail: "URL shortener web app built for quick link sharing.",
-      href: "https://github.com/jrKitt/shorturls",
-      live: "https://short-rust.vercel.app",
-      tags: ["Next.js", "MongoDB"],
-    },
-  ];
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { 
+  FiFolder, 
+  FiExternalLink, 
+  FiGithub, 
+  FiSearch, 
+  FiActivity, 
+  FiServer, 
+  FiArrowLeft,
+  FiCode
+} from "react-icons/fi";
+import { Project } from "../../lib/projects";
+
+export default function ProjectsPage() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  useEffect(() => {
+    fetch("/project.json")
+      .then((res) => res.json())
+      .then((data: Project[]) => {
+        setProjects(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to load project.json", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category).filter(Boolean)))];
+
+  const filteredProjects = projects.filter((project) => {
+    const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
+    const query = searchQuery.toLowerCase().trim();
+    const matchesSearch = 
+      query === "" ||
+      project.title.toLowerCase().includes(query) ||
+      project.description.toLowerCase().includes(query) ||
+      project.tags.some((t) => t.toLowerCase().includes(query));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
-    <div className="min-h-screen bg-black pb-20 text-slate-100">
-      <main className="mx-auto w-full max-w-4xl px-6 py-12">
-        <section id="projects">
-          <h2 className="mb-6 flex items-center gap-2 text-lg font-semibold text-slate-200">
-            <HiViewGrid className="text-sky-400" size={20} /> Projects
-          </h2>
+    <div className="min-h-screen bg-[#06070a] pb-24 text-slate-100">
+      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+        
+        {/* Navigation Breadcrumb */}
+        <div className="mb-6">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-4 py-1.5 font-mono text-xs text-slate-300 transition hover:border-[#00f0ff] hover:text-[#00f0ff]"
+          >
+            <FiArrowLeft className="h-3.5 w-3.5" />
+            <span>Back to Home</span>
+          </Link>
+        </div>
 
-          <div className="mb-6 grid gap-4 md:grid-cols-2">
+        {/* Header Section */}
+        <section className="mb-10">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#0d1017] text-[#00f0ff]">
+              <FiFolder className="h-5 w-5" />
+            </div>
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-black text-white">
+                Projects &amp; Systems<span className="text-[#00f0ff]">.</span>
+              </h1>
+              <p className="mt-1 font-mono text-xs text-slate-400">
+                Loaded dynamically from <code className="text-[#00f0ff] font-bold">project.json</code> • Production platforms, utilities, and developer tools
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Infrastructure & Live Nodes Cards */}
+        <section className="mb-10">
+          <h2 className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider text-slate-400">
+            Active Infrastructure &amp; Workspaces
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2">
             <a
               href="https://clouds.jrkitt.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-lg border border-slate-800 bg-slate-900/30 p-6 transition hover:border-slate-700 hover:bg-slate-900/50"
+              className="group rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 transition hover:border-[#00f0ff]"
             >
               <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-200 transition group-hover:text-sky-400">Labs</h3>
-                  <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2 py-1 font-mono text-xs text-emerald-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    online
-                  </span>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+                    <FiServer className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white transition group-hover:text-[#00f0ff]">
+                      Labs Workspace
+                    </h3>
+                    <p className="font-mono text-xs text-slate-400">clouds.jrkitt.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-xs text-[#00f0ff]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
+                  <span>online</span>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-400">jrKitt workspace</p>
+              <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Personal cloud compute instance and staging sandbox environment.
+              </p>
             </a>
 
             <a
               href="https://ssm.jrkitt.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-lg border border-slate-800 bg-slate-900/30 p-6 transition hover:border-slate-700 hover:bg-slate-900/50"
+              className="group rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 transition hover:border-[#00f0ff]"
             >
               <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-200 transition group-hover:text-sky-400">Monitoring</h3>
-                  <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2 py-1 font-mono text-xs text-emerald-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    online
-                  </span>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+                    <FiActivity className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white transition group-hover:text-[#00f0ff]">
+                      System Monitoring
+                    </h3>
+                    <p className="font-mono text-xs text-slate-400">ssm.jrkitt.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-xs text-[#00f0ff]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
+                  <span>online</span>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-400">System monitoring and analytics dashboard</p>
+              <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Real-time server analytics, telemetry metrics, and uptime monitoring cluster.
+              </p>
             </a>
           </div>
+        </section>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="group rounded-lg border border-slate-800 bg-slate-900/30 p-4 transition hover:border-slate-700 hover:bg-slate-900/50"
+        {/* Search & Category Filter Pills */}
+        <section className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="relative flex-1 max-w-md">
+            <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search by title, stack, or keyword..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full rounded-full border border-[#1a2233] bg-[#0d1017] py-2.5 pl-10 pr-4 font-mono text-xs text-slate-200 placeholder-slate-500 focus:border-[#00f0ff] focus:outline-none"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[10px] text-slate-400 hover:text-white"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-slate-200 transition group-hover:text-sky-400">{project.title}</h3>
-                    {project.live && (
-                      <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2 py-1 font-mono text-xs text-emerald-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                        online
-                      </span>
-                    )}
-                  </div>
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-800 bg-black transition hover:border-slate-700 hover:bg-slate-900"
-                    title="View on GitHub"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <svg className="h-4 w-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                  </a>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-slate-400">{project.detail}</p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded border border-slate-800 bg-slate-900/50 px-2 py-0.5 font-mono text-xs text-slate-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block font-mono text-xs font-medium text-sky-400 transition hover:text-sky-300"
-                  >
-                    View Live →
-                  </a>
-                )}
-              </div>
+                Clear
+              </button>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-1.5">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setSelectedCategory(cat as string)}
+                className={`rounded-full px-3.5 py-1 font-mono text-xs font-medium transition ${
+                  selectedCategory === cat
+                    ? "bg-[#00f0ff] text-black font-bold border border-[#00f0ff]"
+                    : "border border-[#1a2233] bg-[#0d1017] text-slate-400 hover:text-white hover:border-slate-700"
+                }`}
+              >
+                {cat}
+              </button>
             ))}
           </div>
         </section>
+
+        {/* Project Grid */}
+        {loading ? (
+          <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-12 text-center font-mono text-xs text-slate-500">
+            Loading projects from project.json...
+          </div>
+        ) : filteredProjects.length === 0 ? (
+          <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-12 text-center">
+            <p className="font-mono text-xs text-slate-400">No projects match the current search or filter.</p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("All");
+              }}
+              className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff] bg-[#00f0ff] px-4 py-1.5 font-mono text-xs font-bold text-black"
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-[#1a2233] bg-[#0d1017] transition hover:border-[#00f0ff]"
+              >
+                {/* Image Preview */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#06070a] border-b border-[#1a2233]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = "none";
+                    }}
+                  />
+                  
+                  {project.status && (
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-[11px] text-[#00f0ff]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
+                      <span>{project.status}</span>
+                    </div>
+                  )}
+
+                  {project.category && (
+                    <div className="absolute top-3 left-3 rounded-md border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-[10px] text-slate-300">
+                      {project.category}
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#00f0ff] transition">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-slate-400">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded border border-[#1a2233] bg-[#06070a] px-2 py-0.5 text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex items-center gap-3 border-t border-[#1a2233] pt-4">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#00f0ff] bg-[#00f0ff] px-3.5 py-1.5 font-mono text-xs font-bold text-black hover:bg-[#38bdf8] transition"
+                      >
+                        <span>View Live</span>
+                        <FiExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#1a2233] bg-[#06070a] px-3.5 py-1.5 font-mono text-xs font-medium text-slate-300 hover:border-slate-600 hover:text-white transition"
+                      >
+                        <FiGithub className="h-3.5 w-3.5" />
+                        <span>Source</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Configuration Guide Box */}
+        <section className="mt-16 rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+              <FiCode className="h-4 w-4" />
+            </div>
+            <div>
+              <h4 className="font-mono text-xs font-bold text-[#00f0ff] uppercase tracking-wider">
+                Managing Projects via project.json
+              </h4>
+              <p className="mt-1 text-xs text-slate-400 leading-relaxed font-mono">
+                Easily add or update projects in <code className="text-white bg-[#06070a] px-1.5 py-0.5 rounded border border-[#1a2233]">public/project.json</code>. 
+                Configure <code className="text-[#00f0ff]">title</code>, <code className="text-[#00f0ff]">description</code>, <code className="text-[#00f0ff]">link</code>, <code className="text-[#00f0ff]">github</code>, <code className="text-[#00f0ff]">image</code>, and <code className="text-[#00f0ff]">tags</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
       </main>
 
-      <footer className="mx-auto mt-20 w-full max-w-4xl px-6 text-center">
+      <footer className="mx-auto mt-20 w-full max-w-6xl px-4 text-center">
         <p className="font-mono text-xs uppercase tracking-widest text-slate-600">
           Built for jrkitt.com
         </p>

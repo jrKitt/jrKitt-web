@@ -1,47 +1,142 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import { 
+  FiHome, 
+  FiUser, 
+  FiCode, 
+  FiFolder, 
+  FiBriefcase, 
+  FiMail, 
+  FiArrowUpRight, 
+  FiMenu, 
+  FiX, 
+  FiFileText 
+} from "react-icons/fi";
 
 export default function Navbar() {
-  return (
-    <nav className="sticky top-0 z-50 border-b border-slate-900 bg-black/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="text-xl font-bold text-slate-200 transition hover:text-sky-400">
-            jrKitt
-          </Link>
-          <div className="hidden md:flex gap-4 text-sm font-medium text-slate-400">
-            <Link href="/" className="transition hover:text-slate-100">Home</Link>
-            <Link href="/#blog" className="transition hover:text-slate-100">Blog</Link>
-            <Link href="/projects" className="transition hover:text-slate-100">Projects</Link>
-            <a href="/cv.html" target="_blank" className="transition hover:text-slate-100">Resume</a>
-            <Link href="mailto:kittichdev@gmail.com" className="transition hover:text-slate-100">Contact</Link>
-          </div>
-        </div>
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-        <div className="flex items-center gap-3">
+  const navLinks = [
+    { name: "Home", href: "/#home", icon: FiHome },
+    { name: "About", href: "/#about", icon: FiUser },
+    { name: "Skills", href: "/#skills", icon: FiCode },
+    { name: "Projects", href: "/#projects", icon: FiFolder },
+    { name: "Experience", href: "/#experience", icon: FiBriefcase },
+    { name: "Contact", href: "/#contact", icon: FiMail },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 w-full px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between">
+        
+        {/* Monogram Brand */}
+        <Link 
+          href="/" 
+          className="group flex items-center gap-2.5"
+          aria-label="Kittichai Raksawong home"
+        >
+          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a2233] bg-[#0d1017] text-sm font-black tracking-tight text-white transition group-hover:border-[#00f0ff] group-hover:text-[#00f0ff]">
+            JR
+          </div>
+          <span className="hidden font-mono text-xs font-semibold tracking-wider text-slate-300 sm:inline-block group-hover:text-white transition">
+            jrkitt<span className="text-[#00f0ff]">.dev</span>
+          </span>
+        </Link>
+
+        {/* Center Floating Pill Navigation (Worachat Style) */}
+        <nav 
+          aria-label="Primary navigation"
+          className="hidden md:flex items-center gap-1 rounded-full border border-[#1a2233] bg-[#0d1017] px-3 py-1.5 shadow-xl"
+        >
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-xs font-medium text-slate-400 transition hover:bg-[#151b28] hover:text-[#00f0ff]"
+              >
+                <Icon className="h-3.5 w-3.5" />
+                <span>{link.name}</span>
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Right CTA Actions */}
+        <div className="flex items-center gap-2.5">
           <a
-            href="https://webring.wonderful.software#jrkitt.com"
-            title="Webring"
-            className="ring-rotate inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-400 text-black transition hover:scale-110 hover:bg-sky-300"
-          >
-            <img
-              alt="Webring"
-              width="14"
-              height="14"
-              src="https://webring.wonderful.software/webring.white.svg"
-              className="brightness-0"
-            />
-          </a>
-          <a
-            href="https://ssm.jrkitt.com"
+            href="/cv.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm font-medium text-slate-200 transition hover:border-sky-400 hover:bg-slate-800 hover:text-sky-400"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#0d1017] px-3.5 py-1.5 font-mono text-xs font-medium text-slate-300 transition hover:border-[#00f0ff] hover:text-[#00f0ff]"
           >
-            Login
+            <FiFileText className="h-3.5 w-3.5 text-[#00f0ff]" />
+            <span>Resume</span>
           </a>
+
+          <a
+            href="mailto:kittichdev@gmail.com"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff] bg-[#00f0ff] px-4 py-1.5 font-mono text-xs font-bold text-black transition hover:bg-[#38bdf8] hover:border-[#38bdf8]"
+          >
+            <span>Let&apos;s talk</span>
+            <FiArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a2233] bg-[#0d1017] text-slate-300 md:hidden hover:border-[#00f0ff] hover:text-[#00f0ff]"
+            aria-label="Open navigation"
+          >
+            {mobileMenuOpen ? <FiX className="h-4 w-4" /> : <FiMenu className="h-4 w-4" />}
+          </button>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-[#1a2233] bg-[#0d1017] p-4 shadow-2xl md:hidden">
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 font-mono text-sm text-slate-300 transition hover:bg-[#151b28] hover:text-[#00f0ff]"
+                >
+                  <Icon className="h-4 w-4 text-[#00f0ff]" />
+                  <span>{link.name}</span>
+                </a>
+              );
+            })}
+            <div className="mt-2 flex items-center justify-between border-t border-[#1a2233] pt-3">
+              <a
+                href="/cv.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 font-mono text-xs text-slate-300 hover:text-[#00f0ff]"
+              >
+                <FiFileText className="h-3.5 w-3.5 text-[#00f0ff]" />
+                <span>View Resume</span>
+              </a>
+              <a
+                href="https://github.com/jrKitt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-slate-400 hover:text-white"
+              >
+                github.com/jrKitt
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

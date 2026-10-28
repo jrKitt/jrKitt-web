@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: #06070a;
   --foreground: #f1f5f9;
+  --card-bg: #0d1017;
+  --card-border: #1a2233;
+  --accent-cyan: #00f0ff;
 }
 
 @theme inline {
@@ -12,15 +15,67 @@
   --font-mono: var(--font-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
-  background: var(--background);
-  color: var(--foreground);
+  background-color: #06070a;
+  color: #f1f5f9;
   font-family: var(--font-display), "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
+}
+
+/* Custom dark cyan scrollbar (Solid, No Gradients) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #06070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2233;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 32s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 32s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
 }
 
 .ring-rotate {
@@ -31,21 +86,4 @@ a {
   to {
     transform: rotate(360deg);
   }
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 30s linear infinite;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
 }
