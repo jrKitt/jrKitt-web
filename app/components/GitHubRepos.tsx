@@ -36,31 +36,31 @@ export default function GitHubRepos() {
 
   if (loading) {
     return (
-      <section className="rounded-2xl border border-slate-800/80 bg-[#070b16]/70 p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-white">Public Repositories</h2>
-        <p className="mt-4 font-mono text-xs text-slate-500">Loading GitHub repositories...</p>
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900/60">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">คลังโค้ดสาธารณะ (Repositories)</h2>
+        <p className="mt-4 font-mono text-xs text-slate-500 dark:text-slate-400">กำลังโหลดข้อมูลจาก GitHub...</p>
       </section>
     );
   }
 
   if (error) {
     return (
-      <section className="rounded-2xl border border-slate-800/80 bg-[#070b16]/70 p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-white">Public Repositories</h2>
-        <p className="mt-4 font-mono text-xs text-red-400">Error: {error}</p>
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900/60">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">คลังโค้ดสาธารณะ (Repositories)</h2>
+        <p className="mt-4 font-mono text-xs text-rose-500">เกิดข้อผิดพลาด: {error}</p>
       </section>
     );
   }
 
   return (
-    <section className="rounded-2xl border border-slate-800/80 bg-[#070b16]/70 p-6 sm:p-8">
+    <section className="rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/60">
       <div className="flex items-center gap-2.5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-cyan-500/30 bg-cyan-950/40 text-cyan-400">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800 dark:text-sky-400">
           <FiGithub className="h-4 w-4" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-white">Public Repositories</h2>
-          <p className="font-mono text-xs text-slate-400">Latest active repositories from GitHub</p>
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">คลังโค้ดสาธารณะ (GitHub)</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400">โปรเจกต์โอเพนซอร์สล่าสุดบน GitHub</p>
         </div>
       </div>
 
@@ -71,27 +71,27 @@ export default function GitHubRepos() {
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-start justify-between gap-4 rounded-xl border border-slate-800/80 bg-[#040712] p-4 transition hover:border-cyan-500/40 hover:bg-[#070e20]"
+            className="group flex items-start justify-between gap-4 rounded-xl border border-slate-200/80 bg-slate-50/50 p-4 transition hover:border-slate-300 hover:bg-white dark:border-slate-800 dark:bg-slate-800/40 dark:hover:border-slate-700 dark:hover:bg-slate-800/80"
           >
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h3 className="font-mono text-sm font-semibold text-slate-200 transition group-hover:text-cyan-300">
+                <h3 className="font-mono text-sm font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-200 dark:group-hover:text-sky-400">
                   {repo.name}
                 </h3>
-                <FiExternalLink className="h-3 w-3 text-slate-500 transition group-hover:text-cyan-400" />
+                <FiExternalLink className="h-3 w-3 text-slate-400 transition group-hover:text-sky-600 dark:text-slate-500 dark:group-hover:text-sky-400" />
               </div>
-              <p className="mt-1 text-xs leading-relaxed text-slate-400">
-                {repo.description || "No description provided"}
+              <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                {repo.description || "ไม่มีคำอธิบายเพิ่มเติม"}
               </p>
               {repo.language && (
-                <span className="mt-2.5 inline-block rounded border border-cyan-950/80 bg-cyan-950/20 px-2 py-0.5 font-mono text-[10px] text-cyan-400">
+                <span className="mt-2.5 inline-block rounded-md border border-slate-200 bg-white px-2 py-0.5 font-mono text-[10px] text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                   {repo.language}
                 </span>
               )}
             </div>
             {repo.stargazers_count > 0 && (
-              <div className="flex items-center gap-1 rounded-full border border-slate-800 bg-slate-900 px-2.5 py-1 font-mono text-xs text-slate-300">
-                <FiStar className="h-3 w-3 text-cyan-400" />
+              <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 font-mono text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                <FiStar className="h-3 w-3 text-amber-500" />
                 <span>{repo.stargazers_count}</span>
               </div>
             )}

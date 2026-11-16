@@ -15,7 +15,8 @@ import {
   FiMapPin,
   FiAward,
   FiTerminal,
-  FiLinkedin
+  FiLinkedin,
+  FiCheckCircle
 } from "react-icons/fi";
 import BlogList from "../components/BlogList";
 import { Project } from "../lib/projects";
@@ -66,6 +67,15 @@ export default function Home() {
     { name: "Vercel", category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" },
   ];
 
+  const skillCategories = [
+    { id: "all", label: "ทั้งหมด" },
+    { id: "languages", label: "ภาษาโปรแกรม" },
+    { id: "frontend", label: "Frontend" },
+    { id: "backend", label: "Backend" },
+    { id: "database", label: "ฐานข้อมูล" },
+    { id: "devops", label: "DevOps & เครื่องมือ" },
+  ];
+
   const filteredSkills = selectedSkillCategory === "all" 
     ? skills 
     : skills.filter(s => s.category === selectedSkillCategory);
@@ -74,48 +84,48 @@ export default function Home() {
     {
       num: "01",
       company: "Freelance Full-Stack Developer",
-      role: "Self-employed",
-      period: "2025 — Present",
-      summary: "Delivering client-centric web platforms, custom dashboards, and REST backend systems with production deployment on Vercel and DigitalOcean.",
+      role: "นักพัฒนาอิสระ (Full Stack)",
+      period: "2025 — ปัจจุบัน",
+      summary: "รับพัฒนาเว็บแพลตฟอร์มตามความต้องการ, แดชบอร์ดบริหารจัดการข้อมูล และระบบ REST API พร้อมดูแลการส่งมอบขึ้น Production บน Vercel และ Cloud Server",
       points: [
-        "Architecting clean relational schemas, JWT authentication, and structured REST APIs.",
-        "Developing high-performance responsive web user interfaces with React, Next.js, and TypeScript.",
-        "Managing client requirements end-to-end from specification to cloud production delivery."
+        "ออกแบบสคีมาฐานข้อมูลเชิงสัมพันธ์ ระบบยืนยันตัวตน JWT และโครงสร้าง REST API ที่รัดกุม",
+        "พัฒนาเว็บแอปพลิเคชันที่ตอบสนองรวดเร็วและรองรับ Responsive ด้วย React, Next.js และ TypeScript",
+        "บริหารจัดการความต้องการของลูกค้าตั้งแต่เริ่มวางโครงร่างจนถึงส่งมอบงานขึ้นระบบจริง"
       ]
     },
     {
       num: "02",
       company: "APSTH Company Limited",
       role: "Frontend & Backend Developer",
-      period: "Sep 2024 — Feb 2026",
-      summary: "Developed integrated clinic management systems and e-commerce platforms using modern JavaScript runtimes.",
+      period: "ก.ย. 2024 — ก.พ. 2026",
+      summary: "ร่วมพัฒนาระบบบริหารจัดการคลินิกและแพลตฟอร์ม E-commerce โดยใช้ JavaScript Runtime ยุคใหม่",
       points: [
-        "Engineered high-throughput backend APIs using Elysia.js on Bun with MySQL as the primary database.",
-        "Implemented secure JWT authorization and role-based access control (RBAC) across clinic portals.",
-        "Built responsive client storefronts and inventory panels using React.js and Tailwind CSS."
+        "พัฒนา Backend API ความเร็วสูงด้วย Elysia.js บน Bun เชื่อมต่อฐานข้อมูล MySQL",
+        "พัฒนาระบบยืนยันสิทธิ์ JWT และการควบคุมการเข้าถึงตามบทบาท (RBAC) ภายในระบบคลินิก",
+        "สร้างหน้าเว็บสำหรับลูกค้าและแผงควบคุมสต็อกสินค้าด้วย React.js และ Tailwind CSS"
       ]
     },
     {
       num: "03",
       company: "Friendly Dev Co., Ltd.",
       role: "Mobile Developer",
-      period: "Aug 2024 — Feb 2025",
-      summary: "Engineered cross-platform mobile application workflows with cloud synchronization.",
+      period: "ส.ค. 2024 — ก.พ. 2025",
+      summary: "พัฒนาแอปพลิเคชันมือถือแบบข้ามแพลตฟอร์ม (Cross-platform) พร้อมระบบเชื่อมต่อข้อมูลบนคลาวด์",
       points: [
-        "Built Flutter mobile applications following strict UI/UX specifications and accessibility guidelines.",
-        "Integrated Firebase Firestore, authentication, and push notification pipelines.",
-        "Published mobile software free to the public on Google Play Store and Apple App Store."
+        "พัฒนาโมบายล์แอปพลิเคชันด้วย Flutter ตามข้อกำหนด UI/UX และแนวทาง Accessibility",
+        "เชื่อมต่อระบบฐานข้อมูล Firebase Firestore, การยืนยันตัวตน และระบบ Push Notification",
+        "จัดเตรียมและเผยแพร่แอปพลิเคชันสู่ Google Play Store และ Apple App Store"
       ]
     },
     {
       num: "04",
       company: "IT Network Computer Service",
       role: "IT Support & Web Intern",
-      period: "Oct 2023 — Feb 2024",
-      summary: "Constructed internal company tools and maintained physical infrastructure networks.",
+      period: "ต.ค. 2023 — ก.พ. 2024",
+      summary: "พัฒนาเว็บแอปพลิเคชันภายในองค์กรและดูแลบำรุงรักษาระบบโครงสร้างพื้นฐานเครือข่าย",
       points: [
-        "Created an internal web application for employee attendance logging and salary records.",
-        "Configured LAN network cables, server installation, and hardware diagnostic procedures."
+        "พัฒนาเว็บแอปพลิเคชันสำหรับบันทึกเวลาเข้า-ออกงานและจัดทำข้อมูลเงินเดือนพนักงาน",
+        "เดินสายสัญญาณ LAN ติดตั้งเครื่องเซิร์ฟเวอร์ และตรวจสอบแก้ไขปัญหาอุปกรณ์ฮาร์ดแวร์"
       ]
     }
   ];
@@ -124,208 +134,193 @@ export default function Home() {
   const displayProjects = featuredProjects.length > 0 ? featuredProjects : projects.slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-[#06070a] text-slate-100">
+    <div className="min-h-screen bg-slate-50 text-slate-800 transition-colors dark:bg-[#090b10] dark:text-slate-100">
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
 
-        {/* 1. HERO SECTION (Worachat-inspired Stacked Typographic Hero) */}
-        <section id="home" className="relative mb-24 pt-8 pb-16 text-center sm:pt-16 sm:pb-24">
-          
-          {/* Top Left Monospace Meta (Worachat style) */}
-          <div className="hidden lg:block absolute left-0 top-12 max-w-[260px] text-left font-mono text-[11px] leading-relaxed text-slate-400 select-none">
-            KITTICHAI RAKSAWONG • FULL STACK DEV<br />
-            BUILDING DEPENDABLE SYSTEMS, BACKENDS<br />
-            &amp; MODERN PRODUCTION APPLICATIONS.
-          </div>
+        {/* 1. HERO SECTION (Minimalist, Clean & Focused) */}
+        <section id="home" className="relative mb-20 pt-6 pb-12 sm:pt-12 sm:pb-16">
+          <div className="mx-auto max-w-3xl text-center">
+            
+            {/* Availability Pill */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-slate-700 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+              </span>
+              <span>พร้อมรับงานพัฒนาระบบ &amp; ฟรีแลนซ์</span>
+            </div>
 
-          {/* Top Right Monospace Meta (Worachat style) */}
-          <div className="hidden lg:block absolute right-0 top-12 max-w-[260px] text-right font-mono text-[11px] leading-relaxed text-slate-400 select-none">
-            BSC COMPUTER SCIENCE @ KKU<br />
-            KHON KAEN, THAILAND<br />
-            REACT • NEXT.JS • GOLANG • NODE • CLOUD
-          </div>
+            {/* Name & Headline */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-950 dark:text-white leading-[1.1]">
+              กิตติชัย รักษา​วงศ์
+            </h1>
+            <p className="mt-3 font-mono text-base sm:text-lg font-medium text-sky-600 dark:text-sky-400">
+              Full Stack Software Developer
+            </p>
 
-          {/* Giant Stacked Title (Worachat Hero Layout) */}
-          <h1 className="flex flex-col items-center justify-center font-black tracking-tighter text-white select-none leading-[0.92] text-5xl sm:text-7xl md:text-8xl lg:text-[105px]">
-            <div className="flex items-center gap-3 sm:gap-6">
-              <span>FULL STACK</span>
-              <a 
-                href="https://github.com/jrKitt"
+            {/* Subtitle / Bio */}
+            <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              มุ่งเน้นการสร้างสรรค์เว็บแอปพลิเคชันและระบบ Backend ที่เสถียร สถาปัตยกรรมข้อมูลชัดเจน 
+              และส่งมอบระบบที่ใช้งานได้จริงในระดับ Production นักศึกษาชั้นปีสุดท้าย สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น
+            </p>
+
+            {/* Action CTAs */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-900 px-6 py-2.5 font-mono text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
+              >
+                <span>สำรวจผลงาน</span>
+                <FiArrowRight className="h-4 w-4" />
+              </a>
+
+              <a
+                href="/cv.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="GitHub"
-                className="hidden sm:inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-[#1a2233] bg-[#0d1017] text-slate-400 hover:border-[#00f0ff] hover:text-[#00f0ff] transition"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 font-mono text-xs sm:text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
               >
-                <FiGithub className="h-6 w-6 sm:h-8 sm:w-8" />
+                <FiFileText className="h-4 w-4 text-sky-600 dark:text-sky-400" />
+                <span>ดูประวัติย่อ / Resume</span>
+                <FiArrowUpRight className="h-3.5 w-3.5 opacity-60" />
               </a>
+
+              {/* Social Quick Icons */}
+              <div className="flex items-center gap-2 pl-1">
+                <a
+                  href="https://github.com/jrKitt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub: jrKitt"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
+                >
+                  <FiGithub className="h-4 w-4" />
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/jrKitt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn: jrKitt"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
+                >
+                  <FiLinkedin className="h-4 w-4" />
+                </a>
+
+                <a
+                  href="mailto:kittichdev@gmail.com"
+                  title="Email"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
+                >
+                  <FiMail className="h-4 w-4" />
+                </a>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3 sm:gap-6 mt-1 sm:mt-2 text-[#00f0ff]">
-              <a 
-                href="https://linkedin.com/in/jrKitt"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="LinkedIn"
-                className="hidden sm:inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-[#1a2233] bg-[#0d1017] text-slate-400 hover:border-[#00f0ff] hover:text-[#00f0ff] transition"
-              >
-                <FiLinkedin className="h-6 w-6 sm:h-8 sm:w-8" />
-              </a>
-              <span>SOFTWARE</span>
-            </div>
-
-            <div className="flex items-center gap-3 sm:gap-6 mt-1 sm:mt-2">
-              <span>DEVELOPER</span>
-              <a 
-                href="mailto:kittichdev@gmail.com"
-                title="Email"
-                className="hidden sm:inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-[#1a2233] bg-[#0d1017] text-slate-400 hover:border-[#00f0ff] hover:text-[#00f0ff] transition"
-              >
-                <FiMail className="h-6 w-6 sm:h-8 sm:w-8" />
-              </a>
-            </div>
-          </h1>
-
-          {/* Subtitle & Tagline */}
-          <p className="mx-auto mt-6 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-300">
-            Crafting dependable web applications, high-performance backends, and practical digital products. 
-            Final-year Computer Science student at Khon Kaen University.
-          </p>
-
-          {/* Action CTAs */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-full border border-[#00f0ff] bg-[#00f0ff] px-6 py-3 font-mono text-xs sm:text-sm font-bold text-black transition hover:bg-[#38bdf8] hover:border-[#38bdf8]"
-            >
-              <span>Explore Projects</span>
-              <FiArrowRight className="h-4 w-4" />
-            </a>
-
-            <a
-              href="/cv.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-6 py-3 font-mono text-xs sm:text-sm font-semibold text-white transition hover:border-[#00f0ff] hover:text-[#00f0ff]"
-            >
-              <FiFileText className="h-4 w-4 text-[#00f0ff]" />
-              <span>View Resume</span>
-              <FiArrowUpRight className="h-3.5 w-3.5 opacity-60" />
-            </a>
           </div>
         </section>
 
-        {/* 2. ABOUT BENTO GRID SECTION (Worachat-style Bento) */}
-        <section id="about" className="mb-24">
-          {/* Bento Grid */}
+        {/* 2. ABOUT BENTO GRID SECTION (Minimalist Cards) */}
+        <section id="about" className="mb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
             {/* Bento Card 1: Profile Main Card (Col span 2, Row span 2) */}
-            <div className="sm:col-span-2 sm:row-span-2 rounded-2xl border border-[#1a2233] bg-[#0d1017] p-6 flex flex-col justify-between">
+            <div className="sm:col-span-2 sm:row-span-2 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm flex flex-col justify-between dark:border-slate-800/80 dark:bg-slate-900/60">
               <div>
-                <div className="flex items-start gap-5">
+                <div className="flex items-start gap-4 sm:gap-5">
                   <img
                     src="https://github.com/jrKitt.png"
                     alt="Kittichai Raksawong"
-                    className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl border-2 border-[#1a2233] object-cover shrink-0"
+                    className="h-20 w-20 sm:h-24 sm:w-24 rounded-2xl border border-slate-200 object-cover shrink-0 dark:border-slate-800"
                   />
                   <div>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-[#00f0ff]">
-                      FULL STACK DEVELOPER
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-sky-600 dark:text-sky-400 font-semibold">
+                      Full Stack Developer
                     </span>
-                    <h3 className="text-2xl font-black text-white mt-1">
-                      Kittichai<br />Raksawong<span className="text-[#00f0ff]">.</span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mt-1 dark:text-white">
+                      กิตติชัย รักษา​วงศ์
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                      Building dependable web applications, backend APIs, and distributed architectures.
+                    <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
+                      พัฒนาระบบตั้งแต่หน้าบ้าน ส่วนหลังบ้าน ฐานข้อมูล ตลอดจนการขึ้นระบบบนคลาวด์
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-6 space-y-3 font-mono text-xs text-slate-300 border-t border-[#1a2233] pt-4">
-                  <p className="text-slate-400">
-                    Currently pursuing a BSc in Computer Science at Khon Kaen University. 
-                    I focus on end-to-end delivery: clear data models, maintainable backend services, and snappy user interfaces.
+                <div className="mt-6 space-y-2 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-4 dark:border-slate-800 dark:text-slate-400 leading-relaxed">
+                  <p>
+                    กำลังศึกษาระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น 
+                    เน้นการพัฒนาซอฟต์แวร์แบบ End-to-End เพื่อให้ได้ระบบที่สอดคล้องกับความต้องการของผู้ใช้จริง และง่ายต่อการขยายต่อในอนาคต
                   </p>
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-between border-t border-[#1a2233] pt-4 text-xs font-mono text-slate-400">
+              <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-mono text-slate-500 dark:border-slate-800 dark:text-slate-400">
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-[#00f0ff]" />
-                  <span>Open to freelance &amp; contracts</span>
+                  <FiCheckCircle className="h-3.5 w-3.5 text-emerald-500" />
+                  <span>เปิดรับงานสัญญาจ้าง &amp; ฟรีแลนซ์</span>
                 </div>
                 <a 
-                  href="/cv.html"
-                  target="_blank"
-                  className="text-[#00f0ff] hover:underline flex items-center gap-1"
+                  href="/cv.html" 
+                  target="_blank" 
+                  className="text-sky-600 dark:text-sky-400 hover:underline flex items-center gap-1 font-semibold"
                 >
-                  CV <FiArrowUpRight className="h-3 w-3" />
+                  CV / Resume <FiArrowUpRight className="h-3 w-3" />
                 </a>
               </div>
             </div>
 
             {/* Bento Card 2: Education */}
-            <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 flex flex-col justify-between">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm flex flex-col justify-between dark:border-slate-800/80 dark:bg-slate-900/60">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-sky-400">
                 <FiAward className="h-5 w-5" />
               </div>
               <div className="mt-6">
-                <span className="font-mono text-[10px] uppercase text-slate-400">EDUCATION</span>
-                <h4 className="text-base font-bold text-white mt-0.5">Computer Science</h4>
-                <p className="text-xs text-slate-400 mt-1 font-mono">BSc Candidate • Khon Kaen University</p>
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">การศึกษา</span>
+                <h4 className="text-base font-bold text-slate-900 mt-0.5 dark:text-white">วิทยาการคอมพิวเตอร์</h4>
+                <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">วท.บ. • มหาวิทยาลัยขอนแก่น</p>
               </div>
             </div>
 
             {/* Bento Card 3: Projects Stat */}
             <Link 
               href="/projects" 
-              className="group rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 flex flex-col justify-between hover:border-[#00f0ff] transition"
+              className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm flex flex-col justify-between transition hover:border-slate-300 hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase text-slate-400">SELECTED WORK</span>
-                <FiArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-[#00f0ff] transition" />
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">ผลงานทั้งหมด</span>
+                <FiArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-sky-600 transition dark:group-hover:text-sky-400" />
               </div>
               <div className="mt-6">
-                <div className="text-4xl font-black text-white group-hover:text-[#00f0ff] transition">
+                <div className="text-3xl sm:text-4xl font-bold text-slate-950 group-hover:text-sky-600 transition dark:text-white dark:group-hover:text-sky-400">
                   10+
                 </div>
-                <h4 className="text-base font-bold text-slate-200 mt-1">Shipped Projects</h4>
+                <h4 className="text-sm font-semibold text-slate-700 mt-1 dark:text-slate-300">โปรเจกต์ที่ส่งมอบแล้ว</h4>
               </div>
             </Link>
 
-            {/* Bento Card 4: Running Ticker Strip (Col span 2) */}
-            <div className="sm:col-span-2 overflow-hidden rounded-2xl border border-[#1a2233] bg-[#0d1017] py-3.5">
-              <div className="flex gap-4 animate-marquee-left whitespace-nowrap font-mono text-xs font-semibold text-slate-300">
-                {[
-                  "FULL STACK DEVELOPMENT",
-                  "BACKEND SYSTEMS",
-                  "DATABASE ARCHITECTURE",
-                  "REST & WEBSOCKET APIS",
-                  "COMPUTER SCIENCE @ KKU",
-                  "PRODUCTION DEPLOYMENT",
-                  "FULL STACK DEVELOPMENT",
-                  "BACKEND SYSTEMS",
-                  "DATABASE ARCHITECTURE",
-                  "REST & WEBSOCKET APIS",
-                  "COMPUTER SCIENCE @ KKU",
-                  "PRODUCTION DEPLOYMENT"
-                ].map((item, idx) => (
-                  <span key={idx} className="flex items-center gap-3">
-                    <span className="text-[#00f0ff]">◆</span>
-                    <span>{item}</span>
-                  </span>
-                ))}
+            {/* Bento Card 4: Philosophy */}
+            <div className="sm:col-span-2 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm flex flex-col justify-between dark:border-slate-800/80 dark:bg-slate-900/60">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-sky-400">
+                <FiTerminal className="h-5 w-5" />
+              </div>
+              <div className="mt-4">
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">แนวคิดการพัฒนา</span>
+                <h4 className="text-base font-bold text-slate-900 mt-1 dark:text-white">คิดอย่างเป็นระบบ พัฒนาอย่างตรงจุด</h4>
+                <p className="mt-1 text-xs text-slate-600 leading-relaxed dark:text-slate-400">
+                  ให้ความสำคัญกับสถาปัตยกรรมข้อมูลที่รัดกุม, API ที่คาดเดาได้ และโค้ดที่เป็นระเบียบ เพื่อให้ทีมงานร่วมพัฒนาและดูแลต่อได้ง่าย
+                </p>
               </div>
             </div>
 
-            {/* Bento Card 5: Core Stack Mini Badges */}
-            <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5">
-              <span className="font-mono text-[10px] uppercase text-slate-400">CORE EXPERTISE</span>
-              <h4 className="text-base font-bold text-white mt-0.5 mb-3">My Stack</h4>
-              <div className="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            {/* Bento Card 5: Core Stack Highlights */}
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/60">
+              <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">เทคโนโลยีหลัก</span>
+              <h4 className="text-base font-bold text-slate-900 mt-0.5 mb-2.5 dark:text-white">Core Stack</h4>
+              <div className="flex flex-wrap gap-1 font-mono text-[11px]">
                 {["Next.js", "React", "TypeScript", "Node.js", "Go", "PostgreSQL", "Docker"].map((tech) => (
                   <span 
                     key={tech}
-                    className="rounded-md border border-[#1a2233] bg-[#06070a] px-2 py-0.5 text-slate-300"
+                    className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-slate-700 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-300"
                   >
                     {tech}
                   </span>
@@ -333,34 +328,20 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Bento Card 6: Philosophy (Wide span 2) */}
-            <div className="sm:col-span-2 rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 flex flex-col justify-between">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
-                <FiTerminal className="h-5 w-5" />
-              </div>
-              <div className="mt-4">
-                <span className="font-mono text-[10px] uppercase text-slate-400">FROM INTERFACE TO INFRASTRUCTURE</span>
-                <h4 className="text-lg font-bold text-white mt-1">Think in systems. Build end to end.</h4>
-                <p className="mt-1 text-xs text-slate-400 leading-relaxed">
-                  Focusing on explicit data structures, predictable APIs, and reliable software that teammates can easily maintain.
-                </p>
-              </div>
-            </div>
-
-            {/* Bento Card 7: Location */}
-            <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 flex flex-col justify-between">
+            {/* Bento Card 6: Location */}
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm flex flex-col justify-between dark:border-slate-800/80 dark:bg-slate-900/60">
               <div className="flex items-center justify-between">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-sky-400">
                   <FiMapPin className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-[10px] text-slate-400">LOCATION</span>
+                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500">ที่อยู่</span>
               </div>
               <div className="mt-4">
-                <span className="font-mono text-[10px] uppercase text-slate-400">BASED IN</span>
-                <h4 className="text-base font-bold text-white mt-0.5">Khon Kaen, Thailand</h4>
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">พำนักอยู่ที่</span>
+                <h4 className="text-base font-bold text-slate-900 mt-0.5 dark:text-white">ขอนแก่น, ประเทศไทย</h4>
                 <a 
                   href="mailto:kittichdev@gmail.com" 
-                  className="mt-2 inline-flex items-center gap-1 font-mono text-xs text-[#00f0ff] hover:underline"
+                  className="mt-1.5 inline-flex items-center gap-1 font-mono text-xs text-sky-600 hover:underline dark:text-sky-400"
                 >
                   kittichdev@gmail.com
                 </a>
@@ -370,48 +351,48 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3. WORK EXPERIENCE SECTION (Worachat-style Detailed Timeline) */}
-        <section id="experience" className="mb-24">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-3.5 py-1 font-mono text-xs text-[#00f0ff] uppercase tracking-wider mb-3">
+        {/* 3. WORK EXPERIENCE SECTION */}
+        <section id="experience" className="mb-20">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400 uppercase tracking-wider mb-2">
               <FiBriefcase className="h-3.5 w-3.5" />
-              <span>Career &amp; Practical Work</span>
+              <span>ประวัติการทำงาน</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              Work experience.
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
+              ประสบการณ์ทำงาน
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-slate-400">
-              Contract development, agency client work, and engineering internships.
+            <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              งานรับจ้างพัฒนาอิสระ, ประสบการณ์ทำงานร่วมกับบริษัท และการฝึกงานด้านไอที
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-6 sm:p-8">
-            <div className="space-y-8 divide-y divide-[#1a2233]">
+          <div className="rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/60">
+            <div className="space-y-8 divide-y divide-slate-100 dark:divide-slate-800">
               {experiences.map((exp, idx) => (
                 <div key={exp.company} className={idx > 0 ? "pt-8" : ""}>
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
                     <div className="flex items-start gap-4">
-                      <span className="font-mono text-2xl font-black text-[#00f0ff] select-none">
+                      <span className="font-mono text-xl sm:text-2xl font-bold text-sky-600 select-none dark:text-sky-400">
                         {exp.num}
                       </span>
                       <div>
-                        <h3 className="text-lg font-bold text-white">{exp.company}</h3>
-                        <p className="font-mono text-xs text-[#00f0ff] font-medium mt-0.5">{exp.role}</p>
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">{exp.company}</h3>
+                        <p className="font-mono text-xs text-sky-600 font-medium mt-0.5 dark:text-sky-400">{exp.role}</p>
                       </div>
                     </div>
-                    <span className="font-mono text-xs text-slate-400 sm:text-right shrink-0">
+                    <span className="font-mono text-xs text-slate-500 dark:text-slate-400 sm:text-right shrink-0">
                       {exp.period}
                     </span>
                   </div>
 
-                  <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed pl-10">
+                  <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed pl-9 sm:pl-10 dark:text-slate-300">
                     {exp.summary}
                   </p>
 
-                  <ul className="mt-3 space-y-1.5 pl-10">
+                  <ul className="mt-3 space-y-1.5 pl-9 sm:pl-10">
                     {exp.points.map((pt, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-slate-400">
-                        <span className="text-[#00f0ff] mt-0.5">•</span>
+                      <li key={i} className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span className="text-sky-600 dark:text-sky-400 mt-0.5">•</span>
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -422,39 +403,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 4. SKILLS SECTION (Worachat-style: Filter pills + dual marquee + official colored brand icons) */}
-        <section id="skills" className="mb-24">
+        {/* 4. SKILLS SECTION (Clean grid, no loud marquees) */}
+        <section id="skills" className="mb-20">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-3.5 py-1 font-mono text-xs text-[#00f0ff] uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400 uppercase tracking-wider mb-2">
               <FiCpu className="h-3.5 w-3.5" />
-              <span>The Tools Behind The Work</span>
+              <span>เครื่องมือและเทคโนโลยี</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              The stack I <span className="text-[#00f0ff]">build with.</span>
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
+              ทักษะความเชี่ยวชาญ
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-slate-400">
-              From the first line of code to a complete working production system.
+            <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              เทคโนโลยีที่นำมาใช้สร้างสรรค์และแก้ปัญหาในโปรเจกต์ต่างๆ
             </p>
           </div>
 
-          {/* Category Filter Pills (Worachat style) */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-            {[
-              { id: "all", label: "All" },
-              { id: "languages", label: "Languages" },
-              { id: "frontend", label: "Frontend" },
-              { id: "backend", label: "Backend" },
-              { id: "database", label: "Databases" },
-              { id: "devops", label: "DevOps & Tools" },
-            ].map((cat) => (
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            {skillCategories.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setSelectedSkillCategory(cat.id)}
                 className={`rounded-full px-4 py-1.5 font-mono text-xs font-medium transition ${
                   selectedSkillCategory === cat.id
-                    ? "bg-[#00f0ff] text-black font-bold border border-[#00f0ff]"
-                    : "border border-[#1a2233] bg-[#0d1017] text-slate-400 hover:text-white hover:border-slate-700"
+                    ? "bg-slate-900 text-white dark:bg-sky-400 dark:text-slate-950"
+                    : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
                 }`}
               >
                 {cat.label}
@@ -462,43 +436,14 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Dual Marquee Strips (Scrolling Left & Right with Official Colored Brand Logos) */}
-          <div className="mb-6 space-y-3 overflow-hidden rounded-2xl border border-[#1a2233] bg-[#0d1017] py-4">
-            {/* Top row - left scroll */}
-            <div className="flex gap-4 animate-marquee-left whitespace-nowrap">
-              {[...skills, ...skills].map((s, i) => (
-                <div
-                  key={`m1-${s.name}-${i}`}
-                  className="flex shrink-0 items-center gap-2.5 rounded-xl border border-[#1a2233] bg-[#06070a] px-3.5 py-2"
-                >
-                  <img src={s.icon} alt={s.name} className="h-5 w-5 object-contain" />
-                  <span className="font-mono text-xs font-medium text-slate-200">{s.name}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom row - right scroll */}
-            <div className="flex gap-4 animate-marquee-right whitespace-nowrap">
-              {[...skills.slice().reverse(), ...skills.slice().reverse()].map((s, i) => (
-                <div
-                  key={`m2-${s.name}-${i}`}
-                  className="flex shrink-0 items-center gap-2.5 rounded-xl border border-[#1a2233] bg-[#06070a] px-3.5 py-2"
-                >
-                  <img src={s.icon} alt={s.name} className="h-5 w-5 object-contain" />
-                  <span className="font-mono text-xs font-medium text-slate-200">{s.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Categorized Skills Grid with Colored Icons */}
+          {/* Categorized Skills Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {filteredSkills.map((skill) => (
               <div
                 key={skill.name}
-                className="group flex items-center gap-3 rounded-xl border border-[#1a2233] bg-[#0d1017] p-3 transition hover:border-[#00f0ff] hover:bg-[#121620]"
+                className="group flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white p-3 shadow-sm transition hover:border-slate-300 hover:shadow dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#1a2233] bg-[#06070a] p-1.5">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-1.5 dark:border-slate-800 dark:bg-slate-800/50">
                   <img
                     src={skill.icon}
                     alt={skill.name}
@@ -506,37 +451,37 @@ export default function Home() {
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="truncate font-mono text-xs font-bold text-white group-hover:text-[#00f0ff] transition">
+                  <h4 className="truncate font-mono text-xs font-semibold text-slate-900 group-hover:text-sky-600 transition dark:text-white dark:group-hover:text-sky-400">
                     {skill.name}
                   </h4>
-                  <p className="font-mono text-[10px] uppercase text-slate-400">{skill.category}</p>
+                  <p className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">{skill.category}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 5. FEATURED PROJECTS (Loaded from project.json with Screenshots & Links) */}
-        <section id="projects" className="mb-24">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        {/* 5. FEATURED PROJECTS */}
+        <section id="projects" className="mb-20">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-3.5 py-1 font-mono text-xs text-[#00f0ff] uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400 uppercase tracking-wider mb-2">
                 <FiFolder className="h-3.5 w-3.5" />
-                <span>Selected Work</span>
+                <span>ผลงานคัดสรร</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-                Featured projects<span className="text-[#00f0ff]">.</span>
+              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
+                ผลงานที่โดดเด่น
               </h2>
-              <p className="mt-2 text-sm text-slate-400 font-mono">
-                Dynamically read from <span className="text-[#00f0ff] font-semibold">project.json</span> with live links &amp; previews
+              <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                คัดเลือกโปรเจกต์พัฒนาระบบที่มีการนำไปใช้งานจริงและมีตัวอย่างให้ทดสอบ
               </p>
             </div>
 
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-4 py-2 font-mono text-xs font-medium text-slate-300 hover:border-[#00f0ff] hover:text-[#00f0ff] transition self-start sm:self-auto"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white self-start sm:self-auto"
             >
-              <span>View All Projects</span>
+              <span>ดูผลงานทั้งหมด</span>
               <FiArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -545,31 +490,31 @@ export default function Home() {
             {displayProjects.map((project) => (
               <div
                 key={project.id}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[#1a2233] bg-[#0d1017] transition hover:border-[#00f0ff]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
               >
                 {/* Image Preview */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#06070a] border-b border-[#1a2233]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-200/80 dark:bg-slate-950 dark:border-slate-800">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-102"
                     loading="lazy"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";
                     }}
                   />
                   
-                  {/* Status Pill on Image */}
+                  {/* Status Pill */}
                   {project.status && (
-                    <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-[11px] text-[#00f0ff]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/90 px-2.5 py-0.5 font-mono text-[11px] text-slate-700 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90 dark:text-slate-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                       <span>{project.status}</span>
                     </div>
                   )}
 
                   {/* Category Pill */}
                   {project.category && (
-                    <div className="absolute top-3 left-3 rounded-md border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-[10px] text-slate-300">
+                    <div className="absolute top-3 left-3 rounded-md border border-slate-200/80 bg-white/90 px-2 py-0.5 font-mono text-[10px] text-slate-700 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90 dark:text-slate-300">
                       {project.category}
                     </div>
                   )}
@@ -577,11 +522,11 @@ export default function Home() {
 
                 {/* Details */}
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#00f0ff] transition">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition dark:text-white dark:group-hover:text-sky-400">
                     {project.title}
                   </h3>
 
-                  <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-slate-400">
+                  <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {project.description}
                   </p>
 
@@ -590,7 +535,7 @@ export default function Home() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded border border-[#1a2233] bg-[#06070a] px-2 py-0.5 text-slate-300"
+                        className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-slate-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400"
                       >
                         {tag}
                       </span>
@@ -598,15 +543,15 @@ export default function Home() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="mt-6 flex items-center gap-3 border-t border-[#1a2233] pt-4">
+                  <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4 dark:border-slate-800">
                     {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#00f0ff] bg-[#00f0ff] px-3.5 py-1.5 font-mono text-xs font-bold text-black hover:bg-[#38bdf8] transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-900 bg-slate-900 px-3.5 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
                       >
-                        <span>Live Demo</span>
+                        <span>ทดลองใช้งานจริง</span>
                         <FiExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}
@@ -616,10 +561,10 @@ export default function Home() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#1a2233] bg-[#06070a] px-3.5 py-1.5 font-mono text-xs font-medium text-slate-300 hover:border-slate-600 hover:text-white transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
                       >
                         <FiGithub className="h-3.5 w-3.5" />
-                        <span>Source</span>
+                        <span>ซอร์สโค้ด</span>
                       </a>
                     )}
                   </div>
@@ -631,91 +576,58 @@ export default function Home() {
           <div className="mt-8 text-center">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-6 py-2.5 font-mono text-xs font-medium text-slate-300 hover:border-[#00f0ff] hover:text-[#00f0ff] transition"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-2.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
             >
-              <span>Explore All Shipped Projects ({projects.length})</span>
+              <span>ดูผลงานและระบบทั้งหมด ({projects.length} รายการ)</span>
               <FiArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>
 
-        {/* 6. MARQUEE BANNER STRIP (Worachat style angled ribbon) */}
-        <section className="mb-24 overflow-hidden rounded-2xl border border-[#1a2233] bg-[#0d1017] py-6 select-none">
-          <div className="flex gap-6 animate-marquee-left whitespace-nowrap font-mono text-sm sm:text-base font-bold text-slate-200">
-            {[
-              "FULL STACK DEVELOPER",
-              "KHON KAEN UNIVERSITY",
-              "COMPUTER SCIENCE",
-              "PROBLEM SOLVER",
-              "WEB SYSTEMS & APIS",
-              "CLEAN CODE",
-              "TYPESCRIPT",
-              "NEXT.JS",
-              "GOLANG",
-              "PRODUCTION READY",
-              "FULL STACK DEVELOPER",
-              "KHON KAEN UNIVERSITY",
-              "COMPUTER SCIENCE",
-              "PROBLEM SOLVER",
-              "WEB SYSTEMS & APIS",
-              "CLEAN CODE",
-              "TYPESCRIPT",
-              "NEXT.JS",
-              "GOLANG",
-              "PRODUCTION READY"
-            ].map((text, i) => (
-              <span key={i} className="flex items-center gap-4">
-                <span className="text-[#00f0ff]">◆</span>
-                <span>{text}</span>
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* 7. BLOG & EXPERIENCE RECATIVE NOTES */}
-        <div id="blog" className="mb-24">
+        {/* 6. BLOG & EXPERIENCE NOTES */}
+        <div id="blog" className="mb-20">
           <BlogList />
         </div>
 
-        {/* 8. CONTACT CTA SECTION (Worachat style) */}
-        <section id="contact" className="mb-24 rounded-2xl border border-[#1a2233] bg-[#0d1017] p-8 sm:p-14 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#06070a] px-3.5 py-1 font-mono text-xs text-[#00f0ff] uppercase tracking-wider mb-4">
+        {/* 7. CONTACT CTA SECTION */}
+        <section id="contact" className="mb-20 rounded-2xl border border-slate-200/80 bg-white p-8 sm:p-14 text-center shadow-sm dark:border-slate-800/80 dark:bg-slate-900/60">
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 font-mono text-xs text-sky-600 dark:border-slate-800 dark:bg-slate-800 dark:text-sky-400 uppercase tracking-wider mb-4">
             <FiMail className="h-3.5 w-3.5" />
-            <span>Have Something in Mind?</span>
+            <span>มีโปรเจกต์ที่สนใจพัฒนาไหม?</span>
           </div>
 
-          <h2 className="text-3xl sm:text-6xl font-black tracking-tight text-white">
-            Let&apos;s build something <span className="text-[#00f0ff]">great.</span>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-950 dark:text-white">
+            มาร่วมสร้างสรรค์ผลงานด้วยกัน
           </h2>
 
-          <p className="mx-auto mt-4 max-w-lg text-sm sm:text-base text-slate-400 leading-relaxed">
-            Have an internship opportunity, freelance project, or system architecture challenge? 
-            I&apos;d love to hear what you are working on.
+          <p className="mx-auto mt-4 max-w-lg text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
+            หากคุณมีข้อเสนอตำแหน่งงาน, โปรเจกต์ฟรีแลนซ์ หรืองานพัฒนาระบบที่ต้องการพูดคุย 
+            ผมยินดีรับฟังและร่วมงานเสมอครับ
           </p>
 
           <div className="mt-8">
             <a
               href="mailto:kittichdev@gmail.com"
-              className="inline-flex items-center gap-2.5 rounded-full border border-[#00f0ff] bg-[#00f0ff] px-8 py-3.5 font-mono text-sm font-bold text-black transition hover:bg-[#38bdf8] hover:border-[#38bdf8]"
+              className="inline-flex items-center gap-2.5 rounded-full border border-slate-900 bg-slate-900 px-8 py-3.5 font-mono text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
             >
-              <span>Get in touch</span>
+              <span>ส่งอีเมลถึงผม</span>
               <FiArrowRight className="h-4 w-4" />
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-5 font-mono text-xs text-slate-400">
-            <a href="mailto:kittichdev@gmail.com" className="flex items-center gap-1.5 hover:text-white transition">
-              <FiMail className="h-3.5 w-3.5 text-[#00f0ff]" />
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5 font-mono text-xs text-slate-500 dark:text-slate-400">
+            <a href="mailto:kittichdev@gmail.com" className="flex items-center gap-1.5 hover:text-slate-900 transition dark:hover:text-white">
+              <FiMail className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" />
               <span>kittichdev@gmail.com</span>
             </a>
-            <span className="text-slate-600">•</span>
-            <a href="https://github.com/jrKitt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition">
-              <FiGithub className="h-3.5 w-3.5 text-[#00f0ff]" />
+            <span className="text-slate-300 dark:text-slate-700">•</span>
+            <a href="https://github.com/jrKitt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-slate-900 transition dark:hover:text-white">
+              <FiGithub className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" />
               <span>github.com/jrKitt</span>
             </a>
-            <span className="text-slate-600">•</span>
-            <a href="https://linkedin.com/in/jrKitt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition">
-              <FiLinkedin className="h-3.5 w-3.5 text-[#00f0ff]" />
+            <span className="text-slate-300 dark:text-slate-700">•</span>
+            <a href="https://linkedin.com/in/jrKitt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-slate-900 transition dark:hover:text-white">
+              <FiLinkedin className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" />
               <span>linkedin.com/in/jrKitt</span>
             </a>
           </div>
@@ -723,20 +635,20 @@ export default function Home() {
 
       </main>
 
-      {/* 9. FLOATING DOCK FOOTER (Worachat Style with Solid Colors) */}
+      {/* 8. FOOTER */}
       <footer className="w-full px-4 pb-8 pt-2 sm:px-6">
-        <div className="mx-auto max-w-5xl rounded-3xl border border-[#1a2233] bg-[#0d1017] p-6 sm:px-10 sm:py-7">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm sm:px-8 sm:py-6 dark:border-slate-800/80 dark:bg-slate-900/60">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-                <span className="font-bold text-white text-base">Kittichai Raksawong</span>
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-0.5 font-mono text-[10px] text-[#00f0ff]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
-                  <span>Active Developer</span>
+                <span className="font-bold text-slate-900 text-sm dark:text-white">กิตติชัย รักษา​วงศ์ (Kittichai Raksawong)</span>
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 font-mono text-[10px] text-emerald-700 dark:border-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-400">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span>พร้อมรับงาน</span>
                 </div>
               </div>
-              <p className="mt-1 font-mono text-[11px] text-slate-500">
-                © 2026 • Designed &amp; Engineered for jrkitt.com • Khon Kaen, Thailand
+              <p className="mt-1 font-mono text-[11px] text-slate-400 dark:text-slate-500">
+                © 2026 • ออกแบบและพัฒนาเพื่อนำเสนอผลงาน • ขอนแก่น, ประเทศไทย
               </p>
             </div>
 
@@ -746,7 +658,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a2233] bg-[#06070a] text-slate-400 hover:border-[#00f0ff] hover:text-[#00f0ff] transition"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
               >
                 <FiGithub className="h-4 w-4" />
               </a>
@@ -754,7 +666,7 @@ export default function Home() {
               <a
                 href="mailto:kittichdev@gmail.com"
                 title="Email"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a2233] bg-[#06070a] text-slate-400 hover:border-[#00f0ff] hover:text-[#00f0ff] transition"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
               >
                 <FiMail className="h-4 w-4" />
               </a>
@@ -762,9 +674,9 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-3.5 py-1.5 font-mono text-xs text-slate-400 hover:text-white hover:border-slate-600 transition"
+                className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
               >
-                <span>Back to Top</span>
+                <span>กลับสู่ด้านบน</span>
                 <FiArrowUpRight className="h-3.5 w-3.5" />
               </button>
             </div>

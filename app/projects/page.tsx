@@ -33,7 +33,15 @@ export default function ProjectsPage() {
       });
   }, []);
 
-  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category).filter(Boolean)))];
+  const rawCategories = Array.from(
+    new Set(projects.map((p) => p.category).filter((c): c is string => Boolean(c)))
+  );
+  const categories: string[] = ["All", ...rawCategories];
+
+  const getCategoryLabel = (cat: string) => {
+    if (cat === "All") return "ทั้งหมด";
+    return cat;
+  };
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
@@ -47,68 +55,68 @@ export default function ProjectsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#06070a] pb-24 text-slate-100">
-      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+    <div className="min-h-screen bg-slate-50 pb-24 text-slate-800 transition-colors dark:bg-[#090b10] dark:text-slate-200">
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
         
         {/* Navigation Breadcrumb */}
         <div className="mb-6">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-[#1a2233] bg-[#0d1017] px-4 py-1.5 font-mono text-xs text-slate-300 transition hover:border-[#00f0ff] hover:text-[#00f0ff]"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-mono text-xs text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
           >
             <FiArrowLeft className="h-3.5 w-3.5" />
-            <span>Back to Home</span>
+            <span>ย้อนกลับหน้าแรก</span>
           </Link>
         </div>
 
         {/* Header Section */}
-        <section className="mb-10">
+        <section className="mb-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#0d1017] text-[#00f0ff]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400">
               <FiFolder className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="text-3xl sm:text-4xl font-black text-white">
-                Projects &amp; Systems<span className="text-[#00f0ff]">.</span>
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+                ผลงานและระบบทั้งหมด
               </h1>
-              <p className="mt-1 font-mono text-xs text-slate-400">
-                Loaded dynamically from <code className="text-[#00f0ff] font-bold">project.json</code> • Production platforms, utilities, and developer tools
+              <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                รวบรวมโปรเจกต์พัฒนาระบบ แพลตฟอร์มบนเว็บ และเครื่องมือที่เคยพัฒนา ({projects.length} รายการ)
               </p>
             </div>
           </div>
         </section>
 
         {/* Infrastructure & Live Nodes Cards */}
-        <section className="mb-10">
-          <h2 className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider text-slate-400">
-            Active Infrastructure &amp; Workspaces
+        <section className="mb-8">
+          <h2 className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            ระบบโครงสร้างพื้นฐาน &amp; คลาวด์ส่วนตัว
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
             <a
               href="https://clouds.jrkitt.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 transition hover:border-[#00f0ff]"
+              className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-sky-400">
                     <FiServer className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white transition group-hover:text-[#00f0ff]">
+                    <h3 className="font-bold text-slate-900 transition group-hover:text-sky-600 dark:text-white dark:group-hover:text-sky-400">
                       Labs Workspace
                     </h3>
-                    <p className="font-mono text-xs text-slate-400">clouds.jrkitt.com</p>
+                    <p className="font-mono text-xs text-slate-500 dark:text-slate-400">clouds.jrkitt.com</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-xs text-[#00f0ff]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
-                  <span>online</span>
+                <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-xs text-emerald-700 dark:border-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-400">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span>ออนไลน์</span>
                 </div>
               </div>
-              <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Personal cloud compute instance and staging sandbox environment.
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
+                สภาพแวดล้อมทดสอบและโฮสต์บริการส่วนตัวบนคลาวด์ (Cloud compute staging sandbox)
               </p>
             </a>
 
@@ -116,27 +124,27 @@ export default function ProjectsPage() {
               href="https://ssm.jrkitt.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5 transition hover:border-[#00f0ff]"
+              className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-sky-400">
                     <FiActivity className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white transition group-hover:text-[#00f0ff]">
+                    <h3 className="font-bold text-slate-900 transition group-hover:text-sky-600 dark:text-white dark:group-hover:text-sky-400">
                       System Monitoring
                     </h3>
-                    <p className="font-mono text-xs text-slate-400">ssm.jrkitt.com</p>
+                    <p className="font-mono text-xs text-slate-500 dark:text-slate-400">ssm.jrkitt.com</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-xs text-[#00f0ff]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
-                  <span>online</span>
+                <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-xs text-emerald-700 dark:border-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-400">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span>ออนไลน์</span>
                 </div>
               </div>
-              <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Real-time server analytics, telemetry metrics, and uptime monitoring cluster.
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
+                ระบบติดตามสถานะเซิร์ฟเวอร์ เมตริกและ Uptime แบบเรียลไทม์ (Real-time telemetry cluster)
               </p>
             </a>
           </div>
@@ -148,18 +156,18 @@ export default function ProjectsPage() {
             <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <input
               type="text"
-              placeholder="Search by title, stack, or keyword..."
+              placeholder="ค้นหาตามชื่อโปรเจกต์, เทคโนโลยี หรือคำสำคัญ..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-full border border-[#1a2233] bg-[#0d1017] py-2.5 pl-10 pr-4 font-mono text-xs text-slate-200 placeholder-slate-500 focus:border-[#00f0ff] focus:outline-none"
+              className="w-full rounded-full border border-slate-200 bg-white py-2 pl-10 pr-12 font-mono text-xs text-slate-800 placeholder-slate-400 shadow-sm transition focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:placeholder-slate-500 dark:focus:border-sky-400"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[10px] text-slate-400 hover:text-white"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[11px] text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
               >
-                Clear
+                ล้าง
               </button>
             )}
           </div>
@@ -172,11 +180,11 @@ export default function ProjectsPage() {
                 onClick={() => setSelectedCategory(cat as string)}
                 className={`rounded-full px-3.5 py-1 font-mono text-xs font-medium transition ${
                   selectedCategory === cat
-                    ? "bg-[#00f0ff] text-black font-bold border border-[#00f0ff]"
-                    : "border border-[#1a2233] bg-[#0d1017] text-slate-400 hover:text-white hover:border-slate-700"
+                    ? "bg-slate-900 text-white dark:bg-sky-400 dark:text-slate-950"
+                    : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
                 }`}
               >
-                {cat}
+                {getCategoryLabel(cat)}
               </button>
             ))}
           </div>
@@ -184,21 +192,23 @@ export default function ProjectsPage() {
 
         {/* Project Grid */}
         {loading ? (
-          <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-12 text-center font-mono text-xs text-slate-500">
-            Loading projects from project.json...
+          <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center font-mono text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-400">
+            กำลังโหลดข้อมูลโปรเจกต์...
           </div>
         ) : filteredProjects.length === 0 ? (
-          <div className="rounded-2xl border border-[#1a2233] bg-[#0d1017] p-12 text-center">
-            <p className="font-mono text-xs text-slate-400">No projects match the current search or filter.</p>
+          <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900/50">
+            <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
+              ไม่พบโปรเจกต์ที่ตรงกับคำค้นหาหรือตัวกรองในขณะนี้
+            </p>
             <button
               type="button"
               onClick={() => {
                 setSearchQuery("");
                 setSelectedCategory("All");
               }}
-              className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff] bg-[#00f0ff] px-4 py-1.5 font-mono text-xs font-bold text-black"
+              className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 px-4 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
             >
-              Reset Filters
+              รีเซ็ตตัวกรอง
             </button>
           </div>
         ) : (
@@ -206,14 +216,14 @@ export default function ProjectsPage() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[#1a2233] bg-[#0d1017] transition hover:border-[#00f0ff]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
               >
                 {/* Image Preview */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#06070a] border-b border-[#1a2233]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-200/80 dark:bg-slate-950 dark:border-slate-800">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-102"
                     loading="lazy"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";
@@ -221,25 +231,25 @@ export default function ProjectsPage() {
                   />
                   
                   {project.status && (
-                    <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-[11px] text-[#00f0ff]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#00f0ff]" />
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/90 px-2.5 py-0.5 font-mono text-[11px] text-slate-700 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90 dark:text-slate-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                       <span>{project.status}</span>
                     </div>
                   )}
 
                   {project.category && (
-                    <div className="absolute top-3 left-3 rounded-md border border-[#1a2233] bg-[#06070a] px-2.5 py-1 font-mono text-[10px] text-slate-300">
+                    <div className="absolute top-3 left-3 rounded-md border border-slate-200/80 bg-white/90 px-2 py-0.5 font-mono text-[10px] text-slate-700 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90 dark:text-slate-300">
                       {project.category}
                     </div>
                   )}
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#00f0ff] transition">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition dark:text-white dark:group-hover:text-sky-400">
                     {project.title}
                   </h3>
 
-                  <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-slate-400">
+                  <p className="mt-2 line-clamp-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {project.description}
                   </p>
 
@@ -247,22 +257,22 @@ export default function ProjectsPage() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded border border-[#1a2233] bg-[#06070a] px-2 py-0.5 text-slate-300"
+                        className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-slate-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="mt-6 flex items-center gap-3 border-t border-[#1a2233] pt-4">
+                  <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4 dark:border-slate-800">
                     {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#00f0ff] bg-[#00f0ff] px-3.5 py-1.5 font-mono text-xs font-bold text-black hover:bg-[#38bdf8] transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-900 bg-slate-900 px-3.5 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
                       >
-                        <span>View Live</span>
+                        <span>ทดลองใช้งานจริง</span>
                         <FiExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}
@@ -272,10 +282,10 @@ export default function ProjectsPage() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#1a2233] bg-[#06070a] px-3.5 py-1.5 font-mono text-xs font-medium text-slate-300 hover:border-slate-600 hover:text-white transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
                       >
                         <FiGithub className="h-3.5 w-3.5" />
-                        <span>Source</span>
+                        <span>ซอร์สโค้ด</span>
                       </a>
                     )}
                   </div>
@@ -286,18 +296,17 @@ export default function ProjectsPage() {
         )}
 
         {/* Configuration Guide Box */}
-        <section className="mt-16 rounded-2xl border border-[#1a2233] bg-[#0d1017] p-5">
+        <section className="mt-16 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/60">
           <div className="flex items-start gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#1a2233] bg-[#06070a] text-[#00f0ff]">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800 dark:text-sky-400">
               <FiCode className="h-4 w-4" />
             </div>
             <div>
-              <h4 className="font-mono text-xs font-bold text-[#00f0ff] uppercase tracking-wider">
-                Managing Projects via project.json
+              <h4 className="font-mono text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                การจัดการข้อมูลโปรเจกต์ผ่าน project.json
               </h4>
-              <p className="mt-1 text-xs text-slate-400 leading-relaxed font-mono">
-                Easily add or update projects in <code className="text-white bg-[#06070a] px-1.5 py-0.5 rounded border border-[#1a2233]">public/project.json</code>. 
-                Configure <code className="text-[#00f0ff]">title</code>, <code className="text-[#00f0ff]">description</code>, <code className="text-[#00f0ff]">link</code>, <code className="text-[#00f0ff]">github</code>, <code className="text-[#00f0ff]">image</code>, and <code className="text-[#00f0ff]">tags</code>.
+              <p className="mt-1 text-xs text-slate-500 leading-relaxed font-mono dark:text-slate-400">
+                สามารถเพิ่มหรือแก้ไขข้อมูลโปรเจกต์ได้ที่ <code className="text-slate-800 bg-slate-100 dark:text-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">public/project.json</code> โดยกำหนด <code className="text-sky-600 dark:text-sky-400">title</code>, <code className="text-sky-600 dark:text-sky-400">description</code>, <code className="text-sky-600 dark:text-sky-400">link</code>, <code className="text-sky-600 dark:text-sky-400">github</code>, <code className="text-sky-600 dark:text-sky-400">image</code> และ <code className="text-sky-600 dark:text-sky-400">tags</code>
               </p>
             </div>
           </div>
@@ -305,9 +314,9 @@ export default function ProjectsPage() {
 
       </main>
 
-      <footer className="mx-auto mt-20 w-full max-w-6xl px-4 text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-slate-600">
-          Built for jrkitt.com
+      <footer className="mx-auto mt-16 w-full max-w-6xl px-4 text-center">
+        <p className="font-mono text-xs text-slate-400 dark:text-slate-600">
+          © 2026 • Kittichai Raksawong • jrkitt.com
         </p>
       </footer>
     </div>

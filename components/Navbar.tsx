@@ -14,6 +14,7 @@ import {
   FiX, 
   FiFileText 
 } from "react-icons/fi";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,18 +38,18 @@ export default function Navbar() {
           className="group flex items-center gap-2.5"
           aria-label="Kittichai Raksawong home"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a2233] bg-[#0d1017] text-sm font-black tracking-tight text-white transition group-hover:border-[#00f0ff] group-hover:text-[#00f0ff]">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-sm font-black tracking-tight text-slate-800 shadow-sm transition group-hover:border-sky-500 group-hover:text-sky-600 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:group-hover:border-sky-400 dark:group-hover:text-sky-400">
             JR
           </div>
-          <span className="hidden font-mono text-xs font-semibold tracking-wider text-slate-300 sm:inline-block group-hover:text-white transition">
-            jrkitt<span className="text-[#00f0ff]">.dev</span>
+          <span className="hidden font-mono text-xs font-semibold tracking-wider text-slate-700 transition sm:inline-block dark:text-slate-300 group-hover:text-sky-600 dark:group-hover:text-white">
+            jrkitt<span className="text-sky-600 dark:text-sky-400">.dev</span>
           </span>
         </Link>
 
-        {/* Center Floating Pill Navigation (Worachat Style) */}
+        {/* Center Floating Pill Navigation */}
         <nav 
           aria-label="Primary navigation"
-          className="hidden md:flex items-center gap-1 rounded-full border border-[#1a2233] bg-[#0d1017] px-3 py-1.5 shadow-xl"
+          className="hidden md:flex items-center gap-1 rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-900/80 dark:shadow-black/20"
         >
           {navLinks.map((link) => {
             const Icon = link.icon;
@@ -56,30 +57,33 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-xs font-medium text-slate-400 transition hover:bg-[#151b28] hover:text-[#00f0ff]"
+                className="flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-xs font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
               >
-                <Icon className="h-3.5 w-3.5" />
+                <Icon className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
                 <span>{link.name}</span>
               </a>
             );
           })}
         </nav>
 
-        {/* Right CTA Actions */}
-        <div className="flex items-center gap-2.5">
+        {/* Right Actions */}
+        <div className="flex items-center gap-2">
+          {/* Theme Switcher */}
+          <ThemeToggle />
+
           <a
             href="/cv.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#1a2233] bg-[#0d1017] px-3.5 py-1.5 font-mono text-xs font-medium text-slate-300 transition hover:border-[#00f0ff] hover:text-[#00f0ff]"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
           >
-            <FiFileText className="h-3.5 w-3.5 text-[#00f0ff]" />
+            <FiFileText className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" />
             <span>Resume</span>
           </a>
 
           <a
             href="mailto:kittichdev@gmail.com"
-            className="inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff] bg-[#00f0ff] px-4 py-1.5 font-mono text-xs font-bold text-black transition hover:bg-[#38bdf8] hover:border-[#38bdf8]"
+            className="inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 px-3.5 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
           >
             <span>Let&apos;s talk</span>
             <FiArrowUpRight className="h-3.5 w-3.5" />
@@ -89,8 +93,8 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a2233] bg-[#0d1017] text-slate-300 md:hidden hover:border-[#00f0ff] hover:text-[#00f0ff]"
-            aria-label="Open navigation"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition md:hidden hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+            aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? <FiX className="h-4 w-4" /> : <FiMenu className="h-4 w-4" />}
           </button>
@@ -99,7 +103,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-[#1a2233] bg-[#0d1017] p-4 shadow-2xl md:hidden">
+        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-xl backdrop-blur-md md:hidden dark:border-slate-800 dark:bg-slate-900/95">
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => {
               const Icon = link.icon;
@@ -108,31 +112,24 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 font-mono text-sm text-slate-300 transition hover:bg-[#151b28] hover:text-[#00f0ff]"
+                  className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 font-mono text-sm text-slate-700 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
                 >
-                  <Icon className="h-4 w-4 text-[#00f0ff]" />
+                  <Icon className="h-4 w-4 text-sky-600 dark:text-sky-400" />
                   <span>{link.name}</span>
                 </a>
               );
             })}
-            <div className="mt-2 flex items-center justify-between border-t border-[#1a2233] pt-3">
+            <div className="mt-3 flex items-center justify-between border-t border-slate-200 pt-3 dark:border-slate-800">
               <a
                 href="/cv.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 font-mono text-xs text-slate-300 hover:text-[#00f0ff]"
+                className="flex items-center gap-1.5 font-mono text-xs text-slate-700 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400"
               >
-                <FiFileText className="h-3.5 w-3.5 text-[#00f0ff]" />
+                <FiFileText className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" />
                 <span>View Resume</span>
               </a>
-              <a
-                href="https://github.com/jrKitt"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs text-slate-400 hover:text-white"
-              >
-                github.com/jrKitt
-              </a>
+              <ThemeToggle showLabel />
             </div>
           </div>
         </div>
