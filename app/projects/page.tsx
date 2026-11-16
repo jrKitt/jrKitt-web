@@ -38,11 +38,6 @@ export default function ProjectsPage() {
   );
   const categories: string[] = ["All", ...rawCategories];
 
-  const getCategoryLabel = (cat: string) => {
-    if (cat === "All") return "ทั้งหมด";
-    return cat;
-  };
-
   const filteredProjects = projects.filter((project) => {
     const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
     const query = searchQuery.toLowerCase().trim();
@@ -65,7 +60,7 @@ export default function ProjectsPage() {
             className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-mono text-xs text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
           >
             <FiArrowLeft className="h-3.5 w-3.5" />
-            <span>ย้อนกลับหน้าแรก</span>
+            <span>Back to Home</span>
           </Link>
         </div>
 
@@ -77,10 +72,10 @@ export default function ProjectsPage() {
             </div>
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-                ผลงานและระบบทั้งหมด
+                Projects &amp; Systems
               </h1>
               <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                รวบรวมโปรเจกต์พัฒนาระบบ แพลตฟอร์มบนเว็บ และเครื่องมือที่เคยพัฒนา ({projects.length} รายการ)
+                A collection of production platforms, utilities, and developer tools ({projects.length} total)
               </p>
             </div>
           </div>
@@ -89,7 +84,7 @@ export default function ProjectsPage() {
         {/* Infrastructure & Live Nodes Cards */}
         <section className="mb-8">
           <h2 className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            ระบบโครงสร้างพื้นฐาน &amp; คลาวด์ส่วนตัว
+            Active Infrastructure &amp; Workspaces
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
             <a
@@ -112,11 +107,11 @@ export default function ProjectsPage() {
                 </div>
                 <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-xs text-emerald-700 dark:border-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>ออนไลน์</span>
+                  <span>online</span>
                 </div>
               </div>
               <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
-                สภาพแวดล้อมทดสอบและโฮสต์บริการส่วนตัวบนคลาวด์ (Cloud compute staging sandbox)
+                Personal cloud compute instance and staging sandbox environment.
               </p>
             </a>
 
@@ -140,11 +135,11 @@ export default function ProjectsPage() {
                 </div>
                 <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-xs text-emerald-700 dark:border-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>ออนไลน์</span>
+                  <span>online</span>
                 </div>
               </div>
               <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
-                ระบบติดตามสถานะเซิร์ฟเวอร์ เมตริกและ Uptime แบบเรียลไทม์ (Real-time telemetry cluster)
+                Real-time server analytics, telemetry metrics, and uptime monitoring cluster.
               </p>
             </a>
           </div>
@@ -156,7 +151,7 @@ export default function ProjectsPage() {
             <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <input
               type="text"
-              placeholder="ค้นหาตามชื่อโปรเจกต์, เทคโนโลยี หรือคำสำคัญ..."
+              placeholder="Search by title, stack, or keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full rounded-full border border-slate-200 bg-white py-2 pl-10 pr-12 font-mono text-xs text-slate-800 placeholder-slate-400 shadow-sm transition focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:placeholder-slate-500 dark:focus:border-sky-400"
@@ -167,7 +162,7 @@ export default function ProjectsPage() {
                 onClick={() => setSearchQuery("")}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[11px] text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
               >
-                ล้าง
+                Clear
               </button>
             )}
           </div>
@@ -177,14 +172,14 @@ export default function ProjectsPage() {
               <button
                 key={cat}
                 type="button"
-                onClick={() => setSelectedCategory(cat as string)}
+                onClick={() => setSelectedCategory(cat)}
                 className={`rounded-full px-3.5 py-1 font-mono text-xs font-medium transition ${
                   selectedCategory === cat
                     ? "bg-slate-900 text-white dark:bg-sky-400 dark:text-slate-950"
                     : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
                 }`}
               >
-                {getCategoryLabel(cat)}
+                {cat}
               </button>
             ))}
           </div>
@@ -193,12 +188,12 @@ export default function ProjectsPage() {
         {/* Project Grid */}
         {loading ? (
           <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center font-mono text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-400">
-            กำลังโหลดข้อมูลโปรเจกต์...
+            Loading projects...
           </div>
         ) : filteredProjects.length === 0 ? (
           <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900/50">
             <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
-              ไม่พบโปรเจกต์ที่ตรงกับคำค้นหาหรือตัวกรองในขณะนี้
+              No projects match the current search or filter.
             </p>
             <button
               type="button"
@@ -208,7 +203,7 @@ export default function ProjectsPage() {
               }}
               className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 px-4 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
             >
-              รีเซ็ตตัวกรอง
+              Reset Filters
             </button>
           </div>
         ) : (
@@ -272,7 +267,7 @@ export default function ProjectsPage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-900 bg-slate-900 px-3.5 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
                       >
-                        <span>ทดลองใช้งานจริง</span>
+                        <span>Live Demo</span>
                         <FiExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}
@@ -285,7 +280,7 @@ export default function ProjectsPage() {
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
                       >
                         <FiGithub className="h-3.5 w-3.5" />
-                        <span>ซอร์สโค้ด</span>
+                        <span>Source</span>
                       </a>
                     )}
                   </div>
@@ -303,10 +298,10 @@ export default function ProjectsPage() {
             </div>
             <div>
               <h4 className="font-mono text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                การจัดการข้อมูลโปรเจกต์ผ่าน project.json
+                Managing Projects via project.json
               </h4>
               <p className="mt-1 text-xs text-slate-500 leading-relaxed font-mono dark:text-slate-400">
-                สามารถเพิ่มหรือแก้ไขข้อมูลโปรเจกต์ได้ที่ <code className="text-slate-800 bg-slate-100 dark:text-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">public/project.json</code> โดยกำหนด <code className="text-sky-600 dark:text-sky-400">title</code>, <code className="text-sky-600 dark:text-sky-400">description</code>, <code className="text-sky-600 dark:text-sky-400">link</code>, <code className="text-sky-600 dark:text-sky-400">github</code>, <code className="text-sky-600 dark:text-sky-400">image</code> และ <code className="text-sky-600 dark:text-sky-400">tags</code>
+                Easily add or update projects in <code className="text-slate-800 bg-slate-100 dark:text-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">public/project.json</code>. Configure <code className="text-sky-600 dark:text-sky-400">title</code>, <code className="text-sky-600 dark:text-sky-400">description</code>, <code className="text-sky-600 dark:text-sky-400">link</code>, <code className="text-sky-600 dark:text-sky-400">github</code>, <code className="text-sky-600 dark:text-sky-400">image</code>, and <code className="text-sky-600 dark:text-sky-400">tags</code>.
               </p>
             </div>
           </div>

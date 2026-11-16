@@ -68,12 +68,12 @@ export default function Home() {
   ];
 
   const skillCategories = [
-    { id: "all", label: "ทั้งหมด" },
-    { id: "languages", label: "ภาษาโปรแกรม" },
+    { id: "all", label: "All" },
+    { id: "languages", label: "Languages" },
     { id: "frontend", label: "Frontend" },
     { id: "backend", label: "Backend" },
-    { id: "database", label: "ฐานข้อมูล" },
-    { id: "devops", label: "DevOps & เครื่องมือ" },
+    { id: "database", label: "Databases" },
+    { id: "devops", label: "DevOps & Tools" },
   ];
 
   const filteredSkills = selectedSkillCategory === "all" 
@@ -84,48 +84,48 @@ export default function Home() {
     {
       num: "01",
       company: "Freelance Full-Stack Developer",
-      role: "นักพัฒนาอิสระ (Full Stack)",
-      period: "2025 — ปัจจุบัน",
-      summary: "รับพัฒนาเว็บแพลตฟอร์มตามความต้องการ, แดชบอร์ดบริหารจัดการข้อมูล และระบบ REST API พร้อมดูแลการส่งมอบขึ้น Production บน Vercel และ Cloud Server",
+      role: "Full-Stack Developer",
+      period: "2025 — Present",
+      summary: "Delivering client-centric web platforms, custom dashboards, and REST backend systems with production deployment on Vercel and Cloud infrastructure.",
       points: [
-        "ออกแบบสคีมาฐานข้อมูลเชิงสัมพันธ์ ระบบยืนยันตัวตน JWT และโครงสร้าง REST API ที่รัดกุม",
-        "พัฒนาเว็บแอปพลิเคชันที่ตอบสนองรวดเร็วและรองรับ Responsive ด้วย React, Next.js และ TypeScript",
-        "บริหารจัดการความต้องการของลูกค้าตั้งแต่เริ่มวางโครงร่างจนถึงส่งมอบงานขึ้นระบบจริง"
+        "Architecting clean relational schemas, JWT authentication, and structured REST APIs.",
+        "Developing high-performance responsive web user interfaces with React, Next.js, and TypeScript.",
+        "Managing client requirements end-to-end from specification to cloud production delivery."
       ]
     },
     {
       num: "02",
       company: "APSTH Company Limited",
       role: "Frontend & Backend Developer",
-      period: "ก.ย. 2024 — ก.พ. 2026",
-      summary: "ร่วมพัฒนาระบบบริหารจัดการคลินิกและแพลตฟอร์ม E-commerce โดยใช้ JavaScript Runtime ยุคใหม่",
+      period: "Sep 2024 — Feb 2026",
+      summary: "Developed integrated clinic management systems and e-commerce platforms using modern JavaScript runtimes.",
       points: [
-        "พัฒนา Backend API ความเร็วสูงด้วย Elysia.js บน Bun เชื่อมต่อฐานข้อมูล MySQL",
-        "พัฒนาระบบยืนยันสิทธิ์ JWT และการควบคุมการเข้าถึงตามบทบาท (RBAC) ภายในระบบคลินิก",
-        "สร้างหน้าเว็บสำหรับลูกค้าและแผงควบคุมสต็อกสินค้าด้วย React.js และ Tailwind CSS"
+        "Engineered high-throughput backend APIs using Elysia.js on Bun with MySQL as the primary database.",
+        "Implemented secure JWT authorization and role-based access control (RBAC) across clinic portals.",
+        "Built responsive client storefronts and inventory panels using React.js and Tailwind CSS."
       ]
     },
     {
       num: "03",
       company: "Friendly Dev Co., Ltd.",
       role: "Mobile Developer",
-      period: "ส.ค. 2024 — ก.พ. 2025",
-      summary: "พัฒนาแอปพลิเคชันมือถือแบบข้ามแพลตฟอร์ม (Cross-platform) พร้อมระบบเชื่อมต่อข้อมูลบนคลาวด์",
+      period: "Aug 2024 — Feb 2025",
+      summary: "Engineered cross-platform mobile application workflows with cloud synchronization.",
       points: [
-        "พัฒนาโมบายล์แอปพลิเคชันด้วย Flutter ตามข้อกำหนด UI/UX และแนวทาง Accessibility",
-        "เชื่อมต่อระบบฐานข้อมูล Firebase Firestore, การยืนยันตัวตน และระบบ Push Notification",
-        "จัดเตรียมและเผยแพร่แอปพลิเคชันสู่ Google Play Store และ Apple App Store"
+        "Built Flutter mobile applications following strict UI/UX specifications and accessibility guidelines.",
+        "Integrated Firebase Firestore, authentication, and push notification pipelines.",
+        "Published mobile software to Google Play Store and Apple App Store."
       ]
     },
     {
       num: "04",
       company: "IT Network Computer Service",
       role: "IT Support & Web Intern",
-      period: "ต.ค. 2023 — ก.พ. 2024",
-      summary: "พัฒนาเว็บแอปพลิเคชันภายในองค์กรและดูแลบำรุงรักษาระบบโครงสร้างพื้นฐานเครือข่าย",
+      period: "Oct 2023 — Feb 2024",
+      summary: "Constructed internal company tools and maintained physical infrastructure networks.",
       points: [
-        "พัฒนาเว็บแอปพลิเคชันสำหรับบันทึกเวลาเข้า-ออกงานและจัดทำข้อมูลเงินเดือนพนักงาน",
-        "เดินสายสัญญาณ LAN ติดตั้งเครื่องเซิร์ฟเวอร์ และตรวจสอบแก้ไขปัญหาอุปกรณ์ฮาร์ดแวร์"
+        "Created an internal web application for employee attendance logging and salary records.",
+        "Configured LAN network cables, server installation, and hardware diagnostic procedures."
       ]
     }
   ];
@@ -147,12 +147,12 @@ export default function Home() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
               </span>
-              <span>พร้อมรับงานพัฒนาระบบ &amp; ฟรีแลนซ์</span>
+              <span>Available for freelance &amp; full-time</span>
             </div>
 
             {/* Name & Headline */}
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-950 dark:text-white leading-[1.1]">
-              กิตติชัย รักษา​วงศ์
+              Kittichai Raksawong
             </h1>
             <p className="mt-3 font-mono text-base sm:text-lg font-medium text-sky-600 dark:text-sky-400">
               Full Stack Software Developer
@@ -160,8 +160,8 @@ export default function Home() {
 
             {/* Subtitle / Bio */}
             <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
-              มุ่งเน้นการสร้างสรรค์เว็บแอปพลิเคชันและระบบ Backend ที่เสถียร สถาปัตยกรรมข้อมูลชัดเจน 
-              และส่งมอบระบบที่ใช้งานได้จริงในระดับ Production นักศึกษาชั้นปีสุดท้าย สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น
+              Crafting dependable web applications, resilient backend architectures, and high-performance digital products.
+              Final-year Computer Science student at Khon Kaen University.
             </p>
 
             {/* Action CTAs */}
@@ -170,7 +170,7 @@ export default function Home() {
                 href="#projects"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-900 px-6 py-2.5 font-mono text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
               >
-                <span>สำรวจผลงาน</span>
+                <span>Explore Projects</span>
                 <FiArrowRight className="h-4 w-4" />
               </a>
 
@@ -181,7 +181,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 font-mono text-xs sm:text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
               >
                 <FiFileText className="h-4 w-4 text-sky-600 dark:text-sky-400" />
-                <span>ดูประวัติย่อ / Resume</span>
+                <span>View Resume</span>
                 <FiArrowUpRight className="h-3.5 w-3.5 opacity-60" />
               </a>
 
@@ -238,18 +238,18 @@ export default function Home() {
                       Full Stack Developer
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mt-1 dark:text-white">
-                      กิตติชัย รักษา​วงศ์
+                      Kittichai Raksawong
                     </h3>
                     <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
-                      พัฒนาระบบตั้งแต่หน้าบ้าน ส่วนหลังบ้าน ฐานข้อมูล ตลอดจนการขึ้นระบบบนคลาวด์
+                      Building dependable web applications, backend APIs, and distributed architectures.
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-6 space-y-2 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-4 dark:border-slate-800 dark:text-slate-400 leading-relaxed">
                   <p>
-                    กำลังศึกษาระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น 
-                    เน้นการพัฒนาซอฟต์แวร์แบบ End-to-End เพื่อให้ได้ระบบที่สอดคล้องกับความต้องการของผู้ใช้จริง และง่ายต่อการขยายต่อในอนาคต
+                    Currently pursuing a BSc in Computer Science at Khon Kaen University. 
+                    I focus on end-to-end delivery: clear data models, maintainable backend services, and snappy user interfaces.
                   </p>
                 </div>
               </div>
@@ -257,7 +257,7 @@ export default function Home() {
               <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-mono text-slate-500 dark:border-slate-800 dark:text-slate-400">
                 <div className="flex items-center gap-2">
                   <FiCheckCircle className="h-3.5 w-3.5 text-emerald-500" />
-                  <span>เปิดรับงานสัญญาจ้าง &amp; ฟรีแลนซ์</span>
+                  <span>Open to freelance &amp; contracts</span>
                 </div>
                 <a 
                   href="/cv.html" 
@@ -275,9 +275,9 @@ export default function Home() {
                 <FiAward className="h-5 w-5" />
               </div>
               <div className="mt-6">
-                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">การศึกษา</span>
-                <h4 className="text-base font-bold text-slate-900 mt-0.5 dark:text-white">วิทยาการคอมพิวเตอร์</h4>
-                <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">วท.บ. • มหาวิทยาลัยขอนแก่น</p>
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">EDUCATION</span>
+                <h4 className="text-base font-bold text-slate-900 mt-0.5 dark:text-white">Computer Science</h4>
+                <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">BSc Candidate • Khon Kaen University</p>
               </div>
             </div>
 
@@ -287,14 +287,14 @@ export default function Home() {
               className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm flex flex-col justify-between transition hover:border-slate-300 hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60 dark:hover:border-slate-700"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">ผลงานทั้งหมด</span>
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">SELECTED WORK</span>
                 <FiArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-sky-600 transition dark:group-hover:text-sky-400" />
               </div>
               <div className="mt-6">
                 <div className="text-3xl sm:text-4xl font-bold text-slate-950 group-hover:text-sky-600 transition dark:text-white dark:group-hover:text-sky-400">
                   10+
                 </div>
-                <h4 className="text-sm font-semibold text-slate-700 mt-1 dark:text-slate-300">โปรเจกต์ที่ส่งมอบแล้ว</h4>
+                <h4 className="text-sm font-semibold text-slate-700 mt-1 dark:text-slate-300">Shipped Projects</h4>
               </div>
             </Link>
 
@@ -304,18 +304,18 @@ export default function Home() {
                 <FiTerminal className="h-5 w-5" />
               </div>
               <div className="mt-4">
-                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">แนวคิดการพัฒนา</span>
-                <h4 className="text-base font-bold text-slate-900 mt-1 dark:text-white">คิดอย่างเป็นระบบ พัฒนาอย่างตรงจุด</h4>
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">ENGINEERING PHILOSOPHY</span>
+                <h4 className="text-base font-bold text-slate-900 mt-1 dark:text-white">Think in systems. Build end to end.</h4>
                 <p className="mt-1 text-xs text-slate-600 leading-relaxed dark:text-slate-400">
-                  ให้ความสำคัญกับสถาปัตยกรรมข้อมูลที่รัดกุม, API ที่คาดเดาได้ และโค้ดที่เป็นระเบียบ เพื่อให้ทีมงานร่วมพัฒนาและดูแลต่อได้ง่าย
+                  Focusing on explicit data structures, predictable APIs, and reliable software that teammates can easily maintain.
                 </p>
               </div>
             </div>
 
             {/* Bento Card 5: Core Stack Highlights */}
             <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/60">
-              <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">เทคโนโลยีหลัก</span>
-              <h4 className="text-base font-bold text-slate-900 mt-0.5 mb-2.5 dark:text-white">Core Stack</h4>
+              <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">CORE EXPERTISE</span>
+              <h4 className="text-base font-bold text-slate-900 mt-0.5 mb-2.5 dark:text-white">My Stack</h4>
               <div className="flex flex-wrap gap-1 font-mono text-[11px]">
                 {["Next.js", "React", "TypeScript", "Node.js", "Go", "PostgreSQL", "Docker"].map((tech) => (
                   <span 
@@ -334,11 +334,11 @@ export default function Home() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sky-600 dark:border-slate-800 dark:bg-slate-800/50 dark:text-sky-400">
                   <FiMapPin className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500">ที่อยู่</span>
+                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500">LOCATION</span>
               </div>
               <div className="mt-4">
-                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">พำนักอยู่ที่</span>
-                <h4 className="text-base font-bold text-slate-900 mt-0.5 dark:text-white">ขอนแก่น, ประเทศไทย</h4>
+                <span className="font-mono text-[10px] uppercase text-slate-400 dark:text-slate-500">BASED IN</span>
+                <h4 className="text-base font-bold text-slate-900 mt-0.5 dark:text-white">Khon Kaen, Thailand</h4>
                 <a 
                   href="mailto:kittichdev@gmail.com" 
                   className="mt-1.5 inline-flex items-center gap-1 font-mono text-xs text-sky-600 hover:underline dark:text-sky-400"
@@ -356,13 +356,13 @@ export default function Home() {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400 uppercase tracking-wider mb-2">
               <FiBriefcase className="h-3.5 w-3.5" />
-              <span>ประวัติการทำงาน</span>
+              <span>Career &amp; Practical Work</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
-              ประสบการณ์ทำงาน
+              Work experience
             </h2>
             <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              งานรับจ้างพัฒนาอิสระ, ประสบการณ์ทำงานร่วมกับบริษัท และการฝึกงานด้านไอที
+              Contract development, agency client work, and engineering internships.
             </p>
           </div>
 
@@ -403,18 +403,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 4. SKILLS SECTION (Clean grid, no loud marquees) */}
+        {/* 4. SKILLS SECTION (Clean grid) */}
         <section id="skills" className="mb-20">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400 uppercase tracking-wider mb-2">
               <FiCpu className="h-3.5 w-3.5" />
-              <span>เครื่องมือและเทคโนโลยี</span>
+              <span>The Tools Behind The Work</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
-              ทักษะความเชี่ยวชาญ
+              The stack I build with
             </h2>
             <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              เทคโนโลยีที่นำมาใช้สร้างสรรค์และแก้ปัญหาในโปรเจกต์ต่างๆ
+              From the first line of code to a complete working production system.
             </p>
           </div>
 
@@ -467,13 +467,13 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-mono text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-sky-400 uppercase tracking-wider mb-2">
                 <FiFolder className="h-3.5 w-3.5" />
-                <span>ผลงานคัดสรร</span>
+                <span>Selected Work</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
-                ผลงานที่โดดเด่น
+                Featured projects
               </h2>
               <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                คัดเลือกโปรเจกต์พัฒนาระบบที่มีการนำไปใช้งานจริงและมีตัวอย่างให้ทดสอบ
+                Handpicked production systems and developer tools with live previews.
               </p>
             </div>
 
@@ -481,7 +481,7 @@ export default function Home() {
               href="/projects"
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white self-start sm:self-auto"
             >
-              <span>ดูผลงานทั้งหมด</span>
+              <span>View All Projects</span>
               <FiArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -551,7 +551,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-900 bg-slate-900 px-3.5 py-1.5 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
                       >
-                        <span>ทดลองใช้งานจริง</span>
+                        <span>Live Demo</span>
                         <FiExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}
@@ -564,7 +564,7 @@ export default function Home() {
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
                       >
                         <FiGithub className="h-3.5 w-3.5" />
-                        <span>ซอร์สโค้ด</span>
+                        <span>Source</span>
                       </a>
                     )}
                   </div>
@@ -578,7 +578,7 @@ export default function Home() {
               href="/projects"
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-2.5 font-mono text-xs font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
             >
-              <span>ดูผลงานและระบบทั้งหมด ({projects.length} รายการ)</span>
+              <span>Explore All Shipped Projects ({projects.length})</span>
               <FiArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -593,16 +593,16 @@ export default function Home() {
         <section id="contact" className="mb-20 rounded-2xl border border-slate-200/80 bg-white p-8 sm:p-14 text-center shadow-sm dark:border-slate-800/80 dark:bg-slate-900/60">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 font-mono text-xs text-sky-600 dark:border-slate-800 dark:bg-slate-800 dark:text-sky-400 uppercase tracking-wider mb-4">
             <FiMail className="h-3.5 w-3.5" />
-            <span>มีโปรเจกต์ที่สนใจพัฒนาไหม?</span>
+            <span>Have Something in Mind?</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-950 dark:text-white">
-            มาร่วมสร้างสรรค์ผลงานด้วยกัน
+            Let&apos;s build something great.
           </h2>
 
           <p className="mx-auto mt-4 max-w-lg text-xs sm:text-sm text-slate-600 leading-relaxed dark:text-slate-400">
-            หากคุณมีข้อเสนอตำแหน่งงาน, โปรเจกต์ฟรีแลนซ์ หรืองานพัฒนาระบบที่ต้องการพูดคุย 
-            ผมยินดีรับฟังและร่วมงานเสมอครับ
+            Have an internship opportunity, freelance project, or system architecture challenge? 
+            I&apos;d love to hear what you are working on.
           </p>
 
           <div className="mt-8">
@@ -610,7 +610,7 @@ export default function Home() {
               href="mailto:kittichdev@gmail.com"
               className="inline-flex items-center gap-2.5 rounded-full border border-slate-900 bg-slate-900 px-8 py-3.5 font-mono text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
             >
-              <span>ส่งอีเมลถึงผม</span>
+              <span>Get in touch</span>
               <FiArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -641,14 +641,14 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-                <span className="font-bold text-slate-900 text-sm dark:text-white">กิตติชัย รักษา​วงศ์ (Kittichai Raksawong)</span>
+                <span className="font-bold text-slate-900 text-sm dark:text-white">Kittichai Raksawong</span>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 font-mono text-[10px] text-emerald-700 dark:border-emerald-950 dark:bg-emerald-950/40 dark:text-emerald-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>พร้อมรับงาน</span>
+                  <span>Active Developer</span>
                 </div>
               </div>
               <p className="mt-1 font-mono text-[11px] text-slate-400 dark:text-slate-500">
-                © 2026 • ออกแบบและพัฒนาเพื่อนำเสนอผลงาน • ขอนแก่น, ประเทศไทย
+                © 2026 • Designed &amp; Engineered for jrkitt.com • Khon Kaen, Thailand
               </p>
             </div>
 
@@ -676,7 +676,7 @@ export default function Home() {
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700 dark:hover:text-white"
               >
-                <span>กลับสู่ด้านบน</span>
+                <span>Back to Top</span>
                 <FiArrowUpRight className="h-3.5 w-3.5" />
               </button>
             </div>

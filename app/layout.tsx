@@ -16,9 +16,9 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "กิตติชัย รักษา​วงศ์ (Kittichai Raksawong) | Portfolio",
+  title: "Kittichai Raksawong | Full Stack Developer",
   description:
-    "พอร์ตโฟลิโอผลงานของ กิตติชัย รักษา​วงศ์ (Full Stack Developer) รวบรวมโปรเจกต์พัฒนาระบบ ทักษะทางเทคโนโลยี และช่องทางการติดต่อ",
+    "Junior Full Stack Developer portfolio featuring selected projects, tech stack, and contact links.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -30,10 +30,10 @@ export default function BlogList() {
       <section className="space-y-4">
         <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-sky-600 dark:text-sky-400">
           <FiBookOpen className="h-4 w-4" />
-          <span>บทความและบันทึก</span>
+          <span>Articles &amp; Notes</span>
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-500 font-mono text-xs dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-400">
-          กำลังโหลดบทความ...
+          Loading articles...
         </div>
       </section>
     );
@@ -52,10 +52,10 @@ export default function BlogList() {
           </div>
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-              บทความและบันทึกประสบการณ์
+              Articles &amp; Experience
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              เรื่องเล่าจากการแข่งขัน Hackathon, การพัฒนาระบบจริง และเกร็ดความรู้ทางเทคนิค
+              Technical insights, hackathon recaps, and engineering logs
             </p>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function BlogList() {
               </p>
 
               <div className="mt-auto pt-5 flex items-center gap-1.5 font-mono text-xs font-semibold text-sky-600 dark:text-sky-400">
-                <span>อ่านเรื่องเล่าฉบับเต็ม</span>
+                <span>Read Story</span>
                 <FiArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
               </div>
             </div>

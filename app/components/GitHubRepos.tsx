@@ -37,8 +37,8 @@ export default function GitHubRepos() {
   if (loading) {
     return (
       <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900/60">
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white">คลังโค้ดสาธารณะ (Repositories)</h2>
-        <p className="mt-4 font-mono text-xs text-slate-500 dark:text-slate-400">กำลังโหลดข้อมูลจาก GitHub...</p>
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Public Repositories</h2>
+        <p className="mt-4 font-mono text-xs text-slate-500 dark:text-slate-400">Loading GitHub repositories...</p>
       </section>
     );
   }
@@ -46,8 +46,8 @@ export default function GitHubRepos() {
   if (error) {
     return (
       <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900/60">
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white">คลังโค้ดสาธารณะ (Repositories)</h2>
-        <p className="mt-4 font-mono text-xs text-rose-500">เกิดข้อผิดพลาด: {error}</p>
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Public Repositories</h2>
+        <p className="mt-4 font-mono text-xs text-rose-500">Error: {error}</p>
       </section>
     );
   }
@@ -59,8 +59,8 @@ export default function GitHubRepos() {
           <FiGithub className="h-4 w-4" />
         </div>
         <div>
-          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">คลังโค้ดสาธารณะ (GitHub)</h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400">โปรเจกต์โอเพนซอร์สล่าสุดบน GitHub</p>
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Public Repositories</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Latest active repositories from GitHub</p>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ export default function GitHubRepos() {
                 <FiExternalLink className="h-3 w-3 text-slate-400 transition group-hover:text-sky-600 dark:text-slate-500 dark:group-hover:text-sky-400" />
               </div>
               <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-                {repo.description || "ไม่มีคำอธิบายเพิ่มเติม"}
+                {repo.description || "No description provided"}
               </p>
               {repo.language && (
                 <span className="mt-2.5 inline-block rounded-md border border-slate-200 bg-white px-2 py-0.5 font-mono text-[10px] text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">

@@ -37,7 +37,7 @@ export default function BlogPostPage() {
       <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-[#090b10] text-slate-500 font-mono text-xs">
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 animate-ping rounded-full bg-sky-500" />
-          <span>กำลังโหลดเนื้อหาบทความ...</span>
+          <span>Loading article...</span>
         </div>
       </div>
     );
@@ -46,14 +46,14 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-[#090b10] px-6 text-center">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">ไม่พบบทความนี้</h1>
-        <p className="mt-2 text-slate-500 font-mono text-xs">ขออภัย ไม่พบเนื้อหาบทความที่คุณต้องการอ่าน</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Post not found</h1>
+        <p className="mt-2 text-slate-500 font-mono text-xs">The requested article could not be located.</p>
         <Link
           href="/"
           className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-900 px-5 py-2 font-mono text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:border-sky-400 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
         >
           <FiArrowLeft className="h-4 w-4" />
-          <span>กลับสู่หน้าแรก</span>
+          <span>Return to Home</span>
         </Link>
       </div>
     );
@@ -67,7 +67,7 @@ export default function BlogPostPage() {
           className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-mono text-xs text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white mb-8"
         >
           <FiArrowLeft className="h-3.5 w-3.5" />
-          <span>ย้อนกลับหน้าแรก</span>
+          <span>Back to Home</span>
         </Link>
 
         <header className="mb-8">

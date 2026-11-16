@@ -27,8 +27,8 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? "เปลี่ยนเป็นโหมดสว่าง (Light mode)" : "เปลี่ยนเป็นโหมดมืด (Dark mode)"}
-      title={isDark ? "เปลี่ยนเป็นโหมดสว่าง" : "เปลี่ยนเป็นโหมดมืด"}
+      aria-label={isDark ? "Switch to Light mode" : "Switch to Dark mode"}
+      title={isDark ? "Switch to Light mode" : "Switch to Dark mode"}
       className={`inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 p-2 text-slate-700 shadow-sm transition-all hover:bg-slate-100 hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white dark:hover:border-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30 ${className}`}
     >
       {isDark ? (
@@ -38,7 +38,7 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
       )}
       {showLabel && (
         <span className="font-mono text-xs">
-          {isDark ? "โหมดสว่าง" : "โหมดมืด"}
+          {isDark ? "Light mode" : "Dark mode"}
         </span>
       )}
     </button>
